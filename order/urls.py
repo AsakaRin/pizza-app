@@ -11,4 +11,5 @@ urlpatterns = [
 	path("processing", views.processing, name="processing"),
 	path("completed", views.completed, name="completed"),
 	path("confirm", views.confirm, name="confirm"),
+	path("search", views.search, name="search"),
 ]
