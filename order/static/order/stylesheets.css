@@ -1,13 +1,18 @@
+
+body{
+  background-image: url('https://scr.vn/wp-content/uploads/2020/07/H%C3%ACnh-n%E1%BB%81n-PP-%C4%91%C6%A1n-gi%E1%BA%A3n-c%E1%BB%B1c-%C4%91%E1%BA%B9p.jpg');
+}
 body #header {
   width: 100%;
   height: 7vh;
-  background-color: #FF3636;
+  /* background-color: #DDC1B3; */
+  
   display: flex;
   align-items: center; }
   body #header .text {
     font-size: 200%;
     font-weight: bold;
-    color: white;
+    color: #000;
     text-decoration: none;
     width: 60%;
     text-align: center;
@@ -16,7 +21,7 @@ body #header {
   body #header .log {
     font-size: 130%;
     font-weight: bold;
-    color: white;
+    color: #000;
     text-decoration: none;
     width: 5%;
     text-align: center;
@@ -34,7 +39,7 @@ body #direction_link {
   display: flex;
   width: 100%;
   height: 40px;
-  background-color: #F53434;
+  background-color: #DDC1B3;
   justify-content: center;
   border-top: 2px solid white;
   border-bottom: 2px solid white; }
@@ -52,7 +57,7 @@ body #direction_link {
     border-right: 2px solid white; }
   body #direction_link a:hover {
     cursor: pointer;
-    background-color: #FF0707; }
+    background-color: #DDC1B3 }
 body #index_box {
   width: 90%;
   margin-left: auto;
@@ -186,7 +191,7 @@ body #cart_box {
     margin-left: 85%;
     margin-top: 20px; }
     body #cart_box .total .text {
-      color: red; }
+      color: #C1D1DB; }
   body #cart_box .buy {
     font-size: 150%;
     margin-left: 85%;
@@ -200,8 +205,201 @@ body #cart_box {
       font-size: 150%;
       font-weight: bold; }
     body #cart_box .pending_box .accept {
-      background-color: #02CB02; }
+      background-color: #C1D1DB; }
   body #cart_box .space {
     height: 50px; }
-
+    .signup_social-h {
+      padding: 50px 0;
+  }
+  
+  .signup_social-h .row {
+      background-color: rgb(164, 218, 200);
+      border: 2px solid rgb(191, 191, 191);
+  }
+  
+  .signup_social-h .signup-h {
+      border-right: 2px solid rgb(191, 191, 191);
+      padding: 20px;
+  }
+  
+  .signup_social-h .signup-h img {
+      width: 92px;
+  }
+  
+  .signup_social-h .signup-h form {
+      padding-left: 30px;
+      display: inline-block;
+      vertical-align: middle;
+      /* max-width: calc(100% - 120px); */
+  }
+  
+  .signup_social-h .signup-h label {
+      font-family: 'KG Tangled Up In You 2', sans-serif;
+      color: #000;
+      font-size: 48px;
+      line-height: 42px;
+      margin-bottom: 20px;
+  }
+  
+  .signup_social-h .signup-h .input_email-h {
+      border: 2px solid rgb(191, 191, 191);
+      font-size: 14px;
+      line-height: 22px;
+      padding: 11px;
+      color: #000;
+      font-family: 'KG HAPPY Solid';
+      margin-right: 10px;
+  }
+  
+  .signup_social-h .signup-h .input_submit-h:hover {
+      background-color: #000;
+  }
+  
+  .signup_social-h .signup-h .input_submit-h {
+      padding: 10px 40px;
+      cursor: pointer;
+      border: none;
+  }
+  
+  .signup_social-h .checkbox_holder-h {
+      max-width: 405px;
+  }
+  
+  .signup_social-h .checkbox_holder-h p {
+      display: inline-block;
+      font-size: 12px;
+      max-width: 85%;
+      vertical-align: middle;
+      line-height: 14px;
+      margin-bottom: 9px;
+      margin-top: 12px;
+      margin-left: 5px;
+  }
+  
+  .signup_social-h .signup-h .error-h {
+      display: none;
+      font-size: 12px;
+      width: 50%;
+      line-height: 16px;
+      color: #C1D1DB;
+  }
+  
+  .signup_social-h .social-h {
+      padding: 0px 40px;
+  }
+  
+  .signup_social-h .social-h h3 {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: 'KG Tangled Up In You 2', sans-serif;
+      color: rgb(0, 0, 0);
+      font-size: 48px;
+      line-height: 42px;
+  }
+  
+  .signup_social-h .social-h ul,
+  .signup_social-h .social-h li {
+      list-style: none;
+      display: inline-block;
+      vertical-align: middle;
+  }
+  
+  .signup_social-h .social-h ul {
+      margin-left: 20px;
+  }
+  
+  .signup_social-h .social-h li {
+      padding: 0 10px;
+  }
+  
+  .signup_social-h .social-h a:hover {
+      background-color: #000;
+      color: #fff;
+  }
+  
+  .signup_social-h .social-h a {
+      width: 54px;
+      height: 54px;
+      display: block;
+      border-radius: 50%;
+      border: 1px solid rgb(191, 191, 191);
+      background-color: #fff;
+      color: #000;
+      font-size: 26px;
+      line-height: 30px;
+      transition: all 0.25s ease 0s;
+      padding: 11px 12px;
+  }
+  
+  .signup_social-h .social-h a[class*="facebook"] {
+      padding: 11px 17px;
+  }
+  
+  .signup_social-h .social-h a[class*="insta"] {
+      padding: 11px 15px;
+  }
+  
+  .signup_social-h .social-h a[class*="twitter"] {
+      padding: 11px 13px;
+  }
+  
+  /* Footer */
+  
+  footer {
+      background-color: #000;
+      padding: 75px 0px;
+      z-index: 100;
+      font-family: 'KG HAPPY Solid';
+      color: #fff;
+      font-size: 12px;
+  }
+  
+  footer .wrapper_content-h {
+      position: relative;
+  }
+  
+  footer nav {
+      display: inline-block;
+  }
+  
+  footer .nav {
+      display: inline-block;
+  }
+  
+  footer .nav ul {
+      display: inline-block;
+  }
+  
+  footer .nav-item {
+      display: inline-block;
+  }
+  
+  footer .nav-item a {
+      padding: 5px 15px;
+      color: #fff;
+  }
+  
+  footer .copyright-h {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-left: 15px;
+  }
+  
+  footer a.product_link-h {
+      display: inline-block;
+      position: absolute;
+      right: 15px;
+      top: 5px;
+      color: #fff;
+  }
+  
+  footer a {
+      transition: all 0.25s ease 0s;
+  }
+  
+  footer a:hover {
+      text-decoration: none;
+      color: rgb(226, 24, 55);
+  }
+  
 /*# sourceMappingURL=stylesheets.css.map */

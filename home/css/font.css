@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'KG HAPPY';
+    src: url(../fonts/KGHAPPY.ttf);
+}
+
+@font-face {
+    font-family: 'KG HAPPY Solid';
+    src: url(../fonts/KGHAPPYSolid.ttf);
+}
+
+@font-face {
+    font-family: 'KG HAPPY Shadows';
+    src: url(../fonts/KGHAPPYShadows.ttf);
+}
+
+@font-face {
+    font-family: 'KG Tangled Up In You';
+    src: url(../fonts/KGTangledUpInYou.ttf);
+}
+
+@font-face {
+    font-family: 'KG Tangled Up In You 2';
+    src: url(../fonts/KGTangledUpInYou2.ttf);
+}

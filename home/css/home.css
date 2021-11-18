@@ -1,0 +1,1060 @@
+/* @import url('http://fonts.cdnfonts.com/css/kg-happy'); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000;
+}
+
+.fixed-h {
+    position: fixed;
+}
+
+.wrapper_content-h {
+    max-width: 1230px;
+    height: 100%;
+    margin: 0px auto !important;
+}
+
+.button-h:hover {
+    background-color: #000;
+    text-decoration: none;
+    color: #fff;
+}
+
+.button-h {
+    display: inline-block;
+    background-color: rgb(226, 24, 55);
+    color: #fff;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0.35px;
+    font-family: 'KG Happy Solid';
+    transition: all 0.25s ease 0s;
+}
+
+/* Header */
+header {
+    padding-top: 40px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: opacity 0.25s ease 1s;
+    animation: fadeIn .5s ease 2s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+header .logo-h {
+    position: fixed;
+}
+
+header #pho_title-h {
+    position: fixed;
+    top: 165px;
+    transition: all .3s ease-out;
+}
+
+header .center_links-h {
+    text-align: right;
+}
+
+header .center_links-h a {
+    font-family: Bayon;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 26px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    transition: color .25s ease;
+}
+
+header .center_links-h a {
+    text-decoration: none;
+}
+
+header .center_links-h a:hover::after {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+header .center_links-h a::after {
+    content: "";
+    width: 90%;
+    height: 4px;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    background-color: rgb(226, 24, 55);
+
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.25s ease 0s;
+}
+
+header .main_links-h {
+    flex-basis: 400px;
+    transition: all 0.25s ease 0s;
+}
+
+header .main_links-h a:hover {
+    background-color: #E21837;
+    text-decoration: none;
+}
+
+header .main_links-h a {
+    margin-right: -3px;
+    background-color: #000;
+    color: #fff;
+    padding: 20px 25px;
+    display: inline-block;
+    position: relative;
+    font-family: 'KG HAPPY Solid', sans-serif;
+    font-size: 14px;
+    letter-spacing: .44px;
+    line-height: 26px;
+    transition: background-color .25s ease;
+}
+
+header .main_links-h a:last-child:hover {
+    background-color: #000;
+    position: relative;
+    padding: 0px;
+}
+
+header .main_links-h a:last-child:hover i {
+    transform: scale(150%);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+}
+
+header .main_links-h a:last-child {
+    width: 62px;
+    height: 66px;
+    background-color: #E21837;
+    font-size: 26px;
+    padding: 19px 18px;
+    vertical-align: middle;
+}
+
+header .main_links-h a i {
+    margin-right: 10px;
+}
+
+header .main_links-h a:last-child i {
+    margin-right: 0px;
+    transition: transform 0.2s ease;
+}
+
+/* Model Pho to Go */
+#modal_pho_to_go-h {
+    background-color: rgba(0,0,0,0.6);
+}
+
+#modal_pho_to_go-h .close {
+    color: #000;
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#modal_pho_to_go-h .close:active {
+    border: none;
+    outline: none;
+}
+
+#modal_pho_to_go-h .modal-content {
+    border-radius: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.modal-body a {
+    margin: 15px 10px;
+}
+
+/* Model Nav menu */
+#modal_nav_menu-h {
+    background-color: rgba(0,0,0,0.9);
+    
+}
+
+#modal_nav_menu-h .nav_right-h {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #e21837;
+    float: right;
+    padding-left: 70px;
+
+    flex-direction: column;
+}
+
+.open_nav_menu-h {
+    animation: openNavMenu 0.5s ease;
+}
+
+@keyframes openNavMenu {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 50%;
+    }
+}
+
+.nav_right-h .close{
+    background-color: #000;
+    color: #fff;
+    font-size: 40px;
+    padding: 10px 20px 20px;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    opacity: 1;
+    transition: all ease 0.25s;
+}
+
+.nav_right-h .close:hover {
+    background-color: #e21837;
+    filter: brightness(120%);
+}
+
+.nav_right-h .nav_menu-h {
+    flex-direction: column;
+}
+
+.nav_right-h .nav_menu-h a:hover {
+    color: #000;
+    margin-left: 20px;
+}
+
+.nav_right-h .nav_menu-h a {
+    font-family: 'KG Tangled Up In You 2', sans-serif;
+    color: #fff;
+    font-size: 50px;
+    padding: 10px 0;
+    line-height: 45px;
+    transition: all 0.25s ease 0s;
+}
+
+.nav_right-h .nav_social-h {
+    margin: 20px 0 30px 0;
+}
+
+.nav_right-h .nav_social-h a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.nav_right-h .nav_social-h a {
+    color: #000;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 30px;
+    margin: 0 10px;
+    transition: all 0.25s ease 0s;
+}
+
+.nav_right-h .nav_social-h a[class*="facebook"] {
+    padding-left: 20px;
+}
+
+.nav_right-h .nav_social-h a[class*="insta"] {
+    padding-left: 17px;
+}
+
+.nav_right-h .nav_social-h a[class*="snapchat"] {
+    padding-left: 15px;
+}
+
+.nav_right-h .nav_social-h a[class*="youtube"] {
+    padding-left: 14px;
+}
+
+.nav_right-h .nav_footer-h a:hover {
+    color: #000;
+}
+
+.nav_right-h .nav_footer-h a{
+    font-family: 'KG Happy Solid';
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.25s ease 0s;
+}
+
+.nav_right-h .product_link-h:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav_right-h .copyright-h,
+.nav_right-h .product_link-h{
+    font-family: 'KG Happy Solid';
+    font-size: 12px;
+    color: #fff;
+    transition: all 0.25s ease 0s;
+}
+
+.nav_right-h .copyright-h {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Background */
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    z-index: -1;
+}
+
+.background div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.background .background_color-h {
+    transition: background-color 0.5s ease 0s;
+}
+
+.background .background_image-h {
+    height: 125%;
+    top: 0px;
+
+    transition: opacity 0.35s ease 0s;
+}
+
+.background .background_image-h img {
+    position: absolute;
+    top: -250px;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    object-fit: cover;
+    width: 100%;
+    height: 130%;
+    transform: translateY(0);
+}
+
+.background .background_gradient-h {
+    background: linear-gradient(rgba(0, 0, 0, 0.65) 0px, rgba(0, 0, 0, 0) 100%);
+    height: 35vh;
+    transition: opacity 0.35s ease 0s;
+}
+
+.fadein {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Foreground */
+
+/* Section home */
+.foreground .front_page_gradient-h {
+    width: 100%;
+    height: 35vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65) 0,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  
+  main .section_size-h {
+    max-height: 100vh;
+    min-height: 800px;
+    position: relative;
+    /* text-align: center; */
+  }
+  
+  main .full_screen-h {
+    width: 100%;
+    height: 130vh;
+  }
+  
+  section .wrapper_image-h {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    clip: rect(0, auto, auto, 0);
+  }
+  
+  section .wrapper_image-h img {
+    max-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    object-fit: cover;
+    /* transform: scale(1) perspective(0px);
+    transition: transform 0.5s_ease 0s; */
+  }
+  
+  section .position_title-h {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  
+  section .swipe_effect-h {
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    animation: swipeLeft 1.5s ease both;
+  }
+  
+  section .position_title-h p {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 0px;
+    background-color: #fff;
+    color: #000;
+    font-family: "KG HAPPY", sans-serif;
+    font-size: 70px;
+    line-height: 96px;
+    padding: 15px;
+    animation: swipeLeft 1s ease 1.5s both;
+  }
+  
+  @keyframes swipeLeft {
+    from {
+      width: 0;
+    }
+  
+    to {
+      width: 100%;
+    }
+  }
+  
+  section .section_actions-h {
+    animation: swipeLeft 1s ease 1.5s both;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 50px;
+    margin-left: 0px;
+  }
+  
+  section .section_actions-h a:hover {
+    background-color: #000;
+    text-decoration: none;
+  }
+  
+  section .section_actions-h a {
+    text-align: center;
+    width: 200px;
+    background-color: #e21837;
+    color: #fff;
+    padding: 25px;
+    margin: 1px 1px;
+    font-family: "KG HAPPY Solid", sans-serif;
+    font-size: 18px;
+    transition: all 0.25s ease;
+  }
+  
+  /* Section Content-2-columns */
+  main .col_content-h {
+    min-height: 800px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .col_content-h .bg_container-h {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .col_content-h .bg_container-h img {
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    /* position: fixed; */
+  }
+  
+  .col_content-h .fg_container-h {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .col_content-h:nth-child(even) .text {
+    order: 1;
+  }
+  
+  .fg_container-h .title_bg_red-h {
+    color: #fff;
+    font-family: "KG HAPPY Solid", sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .fg_container-h .title_bg_red-h p {
+    font-size: 34px;
+    line-height: 54px;
+    padding: 10px;
+    /* white-space: nowrap; */
+    display: inline-block;
+    background-color: rgb(226, 24, 55);
+    margin-bottom: 0px;
+  }
+  
+  .fg_container-h .title_bg_white-h {
+    max-width: 600px;
+    margin: 0px auto 50px;
+    color: #000;
+    font-family: "KG Happy";
+    text-align: center;
+  }
+  
+  .fg_container-h .title_bg_white-h p {
+    font-size: 52px;
+    line-height: 52px;
+    padding: 15px;
+    white-space: nowrap;
+    display: inline-block;
+    background-color: #fff;
+    margin-bottom: 0px;
+  }
+  
+  .fg_container-h .box_info-h {
+    max-width: 465px;
+    padding: 50px;
+    margin: 0px auto 30px;
+    background-color: #000;
+    font-family: "KG Happy Solid";
+    text-align: center;
+  }
+  
+  .fg_container-h .box_info-h p {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 35px;
+    letter-spacing: 0.32px;
+  }
+  
+  .fg_container-h .image .border-image {
+    width: 550px;
+    max-width: 100%;
+    margin: 0px auto;
+  
+    padding: 20px;
+    background-color: rgb(250, 247, 243);
+    border: 3px solid rgb(199, 199, 199);
+  }
+  
+  .fg_container-h .image img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+  }
+
+/* Signup and Social */
+
+.signup_social-h {
+    padding: 50px 0;
+}
+
+.signup_social-h .row {
+    background-color: rgb(164, 218, 200);
+    border: 2px solid rgb(191, 191, 191);
+}
+
+.signup_social-h .signup-h {
+    border-right: 2px solid rgb(191, 191, 191);
+    padding: 20px;
+}
+
+.signup_social-h .signup-h img {
+    width: 92px;
+}
+
+.signup_social-h .signup-h form {
+    padding-left: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    /* max-width: calc(100% - 120px); */
+}
+
+.signup_social-h .signup-h label {
+    font-family: 'KG Tangled Up In You 2', sans-serif;
+    color: #000;
+    font-size: 48px;
+    line-height: 42px;
+    margin-bottom: 20px;
+}
+
+.signup_social-h .signup-h .input_email-h {
+    border: 2px solid rgb(191, 191, 191);
+    font-size: 14px;
+    line-height: 22px;
+    padding: 11px;
+    color: #000;
+    font-family: 'KG HAPPY Solid';
+    margin-right: 10px;
+}
+
+.signup_social-h .signup-h .input_submit-h:hover {
+    background-color: #000;
+}
+
+.signup_social-h .signup-h .input_submit-h {
+    padding: 10px 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.signup_social-h .checkbox_holder-h {
+    max-width: 405px;
+}
+
+.signup_social-h .checkbox_holder-h p {
+    display: inline-block;
+    font-size: 12px;
+    max-width: 85%;
+    vertical-align: middle;
+    line-height: 14px;
+    margin-bottom: 9px;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+.signup_social-h .signup-h .error-h {
+    display: none;
+    font-size: 12px;
+    width: 50%;
+    line-height: 16px;
+    color: red;
+}
+
+.signup_social-h .social-h {
+    padding: 0px 40px;
+}
+
+.signup_social-h .social-h h3 {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'KG Tangled Up In You 2', sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+    line-height: 42px;
+}
+
+.signup_social-h .social-h ul,
+.signup_social-h .social-h li {
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.signup_social-h .social-h ul {
+    margin-left: 20px;
+}
+
+.signup_social-h .social-h li {
+    padding: 0 10px;
+}
+
+.signup_social-h .social-h a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.signup_social-h .social-h a {
+    width: 54px;
+    height: 54px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid rgb(191, 191, 191);
+    background-color: #fff;
+    color: #000;
+    font-size: 26px;
+    line-height: 30px;
+    transition: all 0.25s ease 0s;
+    padding: 11px 12px;
+}
+
+.signup_social-h .social-h a[class*="facebook"] {
+    padding: 11px 17px;
+}
+
+.signup_social-h .social-h a[class*="insta"] {
+    padding: 11px 15px;
+}
+
+.signup_social-h .social-h a[class*="twitter"] {
+    padding: 11px 13px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #000;
+    padding: 75px 0px;
+    z-index: 100;
+    font-family: 'KG HAPPY Solid';
+    color: #fff;
+    font-size: 12px;
+}
+
+footer .wrapper_content-h {
+    position: relative;
+}
+
+footer nav {
+    display: inline-block;
+}
+
+footer .nav {
+    display: inline-block;
+}
+
+footer .nav ul {
+    display: inline-block;
+}
+
+footer .nav-item {
+    display: inline-block;
+}
+
+footer .nav-item a {
+    padding: 5px 15px;
+    color: #fff;
+}
+
+footer .copyright-h {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+footer a.product_link-h {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #fff;
+}
+
+footer a {
+    transition: all 0.25s ease 0s;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: rgb(226, 24, 55);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    section .position_title-h p {
+        font-size: 50px;
+        line-height: 76px;
+    }
+
+    .fg_container-h .title_bg_white-h p {
+        font-size: 38px;
+        line-height: 40px;
+    }
+
+    .signup_social-h .signup-h img {
+        width: 82px;
+    }
+
+    .signup_social-h .signup-h .input_email-h {
+        width: 150px;
+    }
+
+    .signup_social-h .signup-h .input_submit-h {
+        padding: 10px 15px;
+    }
+
+    .signup_social-h .social-h h3,
+    .signup_social-h .social-h ul {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (max-width: 920px) {
+    .fg_container-h .title_bg_white-h p {
+        white-space: initial;
+    }
+
+    .signup_social-h .row>div {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 820px) { 
+    section .position_title-h p {
+        font-size: 40px;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 780px) { 
+    header .center_links-h {
+        display: none;
+    }
+
+    #modal_nav_menu-h {
+        margin-left: -15px;
+    }
+
+    #modal_nav_menu-h .nav_right-h {
+        width: 100%;
+        animation-fill-mode: backwards;
+    }
+
+    section .position_title-h {
+        top: 25%;
+    }
+
+    section .section_actions-h {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col_content-h:nth-child(even) .text {
+        order: 0;
+    }
+
+    footer .copyright-h {
+        display: block;
+    }
+}
+
+@media (max-width: 700px) {
+    section .position_title-h p {
+        white-space: initial;
+        padding: 0;
+    }
+
+    section .section_actions-h a{
+        padding: 18px 5px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .fg_container-h .title_bg_red-h,
+    .fg_container-h .title_bg_white-h {
+        display: inline-block;
+    }
+
+    .fg_container-h .title_bg_white-h p {
+        line-height: 1;
+        font-size: 25px;
+        display: inline-block;
+    }
+
+    footer a.product_link-h {
+        position: static;
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header .logo-h {
+        width: 38px;
+    }
+
+    header #pho_title-h {
+        display: none;
+    }
+
+    .fixed-h {
+        right: 10px;
+    }
+
+    header .main_links-h {
+        flex-basis: 300px;
+        transition: visibility 0.25s ease 0s;
+    }
+
+    header .main_links-h a {
+        padding: 12px 10px;
+        font-size: 10px;
+        margin-right: 5px;
+    }
+
+    header .main_links-h a:last-child {
+        width: 50px;
+        height: 50px;
+        padding: 11px 13px;
+    }
+
+    header .main_links-h a:last-child:hover i {
+        transform: scale(120%);
+        position: absolute;
+        top: 12px;
+        left: 14px;
+    }
+
+    #modal_nav_menu-h .nav_right-h {
+        padding-left: 0;
+    }
+
+    .nav_right-h .nav_menu-h {
+        margin-left: 55px;
+    }
+
+    .nav_right-h .close {
+        font-size: 30px;
+        padding: 15px;
+        padding-top: 5px;
+        right: 40px;
+    }
+
+    .nav_right-h .nav_social-h {
+        margin: 15px auto 15px;
+    }
+
+    .nav_right-h .nav_menu-h a {
+        font-size: 40px;
+    }
+
+    .nav_right-h .nav_social-h a {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        margin: 0 8px;
+        padding: 5px 0;
+    }
+
+    .nav_right-h .nav_social-h a[class*="facebook"] {
+        padding-left: 17px;
+    }
+
+    .nav_right-h .nav_social-h a[class*="insta"] {
+        padding-left: 14px;
+    }
+
+    .nav_right-h .nav_social-h a[class*="snapchat"],
+    .nav_right-h .nav_social-h a[class*="twitter"] {
+        padding-left: 13px;
+    }
+
+    .nav_right-h .nav_social-h a[class*="youtube"] {
+        padding-left: 12px;
+    }
+
+    .nav_right-h .copyright-h, 
+    .nav_right-h .product_link-h {
+        align-self: center;
+    }
+
+    main .col_content-h {
+        min-height: 1000px;
+    }
+
+    section .position_title-h p {
+        font-size: 34px;
+    }
+
+    .fg_container-h .title_bg_red-h p {
+        margin-top: 60px;
+    }
+
+    .fg_container-h .box_info-h {
+        background-color: transparent;
+        padding: 20px;
+    }
+
+    .fg_container-h .image .border-image {
+        padding: 10px;
+    }
+
+    .fg_container-h .image img {
+        height: 300px;
+    }
+
+    .signup_social-h .signup-h img {
+        display: none;
+    }
+
+    .signup_social-h .signup-h form {
+        padding: 0;
+        max-width: initial;
+    }
+
+    .signup_social-h .social-h {
+        padding: 0;
+    }
+
+    .signup_social-h .social-h ul {
+        margin-left: 0;
+    }
+
+    .signup_social-h .social-h li {
+        padding: 0 8px;
+    }
+
+    footer {
+        padding: 30px 0px;
+    }
+}
