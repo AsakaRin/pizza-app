@@ -1,0 +1,86 @@
+body #header {
+  width: 100%;
+  height: 13vh;
+  background-color: #4ff5ff;
+  background-image: url("https://bcassetcdn.com/social/dvg0v9n1cs/preview.png"); /* thêm logo đổi màu*/
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 13% 13vh;
+  text-align: center;
+  font-family:"Brush Script MT",cursive; /* đổi phông chữ tiêu đề */
+  font-size: 300%;
+  font-weight: bold;
+  color: black; }
+body #register_box, body #login_box {
+  display: flex;
+  width: 100%;
+  height: 93vh;
+  min-height: 600px;
+  justify-content: center;
+  align-items: center; }
+  body #register_box form, body #login_box form {
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255, 113, 0, 0.85);
+    border-radius: 5px; }
+    body #register_box form .head, body #login_box form .head {
+      height: 50px;
+      width: 100%;
+      background-color: #DA6100;
+      color: white;
+      font-size: 150%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px; }
+    body #register_box form input, body #login_box form input {
+      width: 300px;
+      height: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px; }
+    body #register_box form .username, body #login_box form .username {
+      margin-top: 30px; }
+    body #register_box form .row, body #login_box form .row {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto; }
+    body #register_box form .first, body #login_box form .first {
+      width: 140px;
+      margin-left: 0px; }
+    body #register_box form .last, body #login_box form .last {
+      width: 140px;
+      margin-right: 0px;
+      margin-left: 0px; }
+    body #register_box form .submit, body #login_box form .submit {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px; }
+      body #register_box form .submit button, body #login_box form .submit button {
+        font-weight: bold;
+        width: 120px; }
+      body #register_box form .submit div, body #login_box form .submit div {
+        margin-top: 10px; }
+body #login_box form {
+  height: 450px; }
+  body #login_box form .username {
+    margin-top: 50px; }
+  body #login_box form input {
+    height: 50px;
+    margin-top: 30px; }
+  body #login_box form .forgotten {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px; }
+    body #login_box form .forgotten a {
+      float: right; }
+  body #login_box form .submit {
+    margin-top: 70px; }
+
+/*# sourceMappingURL=stylesheets.css.map */

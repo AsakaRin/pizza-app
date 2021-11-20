@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Pinochio's Pizza & Subs: Completed</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
+		<script type="text/javascript" src="{% static 'order/cart.js' %}"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+	</head>
+
+	<body>
+		<div id="header">
+			<a href="{% url 'home' %}" class="text">Pinochio's Pizza & Subs</a>
+			{% if user.is_authenticated %}
+				<a href="{% url 'logout' %}" class="log">Logout</a>
+				<a href="{% url 'mycart' %}" class="mycart">Cart</a>
+			{% else %}
+				<a href="{% url 'login' %}" class="log">Login</a>
+			{% endif %}
+		</div>
+		<div id="direction_link">
+			<a href="{% url 'cart' %}">My cart</a>
+			<a href="{% url 'pending' %}">Pending</a>
+			<a href="{% url 'completed' %}">Completed</a>
+		</div>
+		<div id="cart_box">
+			<div class="name">Completed</div>
+			{% if completed %}
+				{% if user.is_superuser %}
+					<input type="hidden" name="user" class="user" value="superuser">
+					{% for username, cart in completed.items %}
+						<div class="pending_box">
+							<div class="username">{{username}}</div>
+							{% for line in cart %}
+								<div class="line">
+									<div>{{line.note}}</div>
+									<input type="hidden" name="price" value="{{line.price}}"></input>
+								</div>
+							{% endfor %}
+							<div class="total row">
+								<div class="text">Total: $</div>
+								{% for key, value in costs.items %}
+									{% if key == username %}
+										<div class="number">{{value}}</div>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div class="space"></div>
+					{% endfor %}
+				{% else %}
+					<input type="hidden" name="user" class="user" value="normaluser">
+					{% for line in completed %}
+						<div class="line">
+							<div>{{line.note}}</div>
+							<input type="hidden" name="price" value="{{line.price}}"></input>
+						</div>
+					{% endfor %}
+					<div class="total row">
+						<div class="text">Total: $</div>
+						<div class="number"></div>
+					</div>
+					<div class="space"></div>
+				{% endif %}
+			{% else %}
+				<div class="message">You have no completed orders</div>
+			{% endif %}
+		</div>
+
+		<div class="footer">
+			<p>Footer</p>
+		</div>
+
+	</body>
+</html>

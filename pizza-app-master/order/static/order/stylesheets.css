@@ -1,0 +1,230 @@
+body #header {
+  width: 100%;
+  height: 13vh;
+  background-color: #4ff5ff;
+  background-image: url("https://bcassetcdn.com/social/dvg0v9n1cs/preview.png"); /* thêm logo đổi màu*/
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 13% 13vh;
+  display: flex;
+  align-items: center; }
+  body #header .text {
+    font-family:"Brush Script MT",cursive; /* đổi phông chữ tiêu đề */
+    font-size: 300%;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    width: 60%;
+    text-align: center;
+    margin-left: 20%;
+    outline: none; }
+  body #header .log {
+    font-size: 130%;
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+    width: 5%;
+    text-align: center;
+    margin-left: 5%;
+    outline: none; }
+  body #header .mycart {
+    font-size: 130%;
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+    width: 5%;
+    text-align: center;
+    outline: none; }
+body #direction_link {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: #F53434;
+  justify-content: center;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white; }
+  body #direction_link a {
+    font-size: 130%;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    width: 33%;
+    justify-content: center;
+    align-items: center; }
+  body #direction_link a:nth-child(2) {
+    border-left: 2px solid white;
+    border-right: 2px solid white; }
+  body #direction_link a:hover {
+    cursor: pointer;
+    background-color: #FF0707; }
+body #index_box {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #EBEBEB;}
+  body #index_box .title {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px; }
+  body #index_box .head {
+    margin-top: 20px; }
+    body #index_box .head .text {
+      font-size: 180%;
+      font-weight: bold; }
+    body #index_box .head .line {
+      border-top: 5px double black;
+      padding-bottom: 10px; }
+  body #index_box .item {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 150%;
+    outline: none; }
+    body #index_box .item .course {
+      display: flex;
+      justify-content: center;
+      width: 30%;
+      text-decoration: none;
+      color: black;
+      outline: none; }
+    body #index_box .item .course:hover {
+      color: #FF3636; }
+    body #index_box .item .size_small {
+      display: flex;
+      justify-content: center;
+      width: 30%; }
+    body #index_box .item .size_large {
+      display: flex;
+      justify-content: center;
+      width: 30%; }
+  body #index_box .dinner_platter {
+    padding-bottom: 50px; }
+body #order_box {
+  width: auto;
+  padding: 30px;
+  background-image: url("https://cdn.crello.com/api/media/small/287444912/stock-photo-few-small-paper-bags-toy");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size: auto ;
+  background-color: #eaff82;
+}
+  body #order_box .name {
+    padding:20px 0px ;
+    font-size: 200%;
+    font-weight: bold;
+    font-size: 200%;
+    font-weight: bold; }
+  body #order_box .size {
+    margin-top: 10px;
+    font-size: 150%; }
+    body #order_box .size input:nth-child(3) {
+      margin-left: 50px; }
+  body #order_box .unit_price {
+    margin-top: 10px;
+    font-size: 150%; }
+  body #order_box .select_topping {
+    font-size: 150%;
+    margin-top: 10px; }
+  body #order_box .topping {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 5px;
+    width: 20%;
+    min-width: 200px;
+    font-size: 130%; }
+    body #order_box .topping input {
+      width: 20px;
+      height: 20px; }
+    body #order_box .topping label {
+      margin-top: 3px;
+      margin-left: 5px; }
+  body #order_box .qty {
+    display: flex;
+    height: 35px;
+    font-size: 150%;
+    margin-top: 20px; }
+    body #order_box .qty button {
+      width: 35px;
+      height: 35px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      outline: none; }
+    body #order_box .qty div {
+      padding-right: 20px; }
+    body #order_box .qty div:nth-child(3) {
+      padding-left: 20px; }
+  body #order_box .cost {
+    font-size: 150%;
+    margin-top: 10px;
+    display: inline-flex; }
+  body #order_box .add_cart {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    color: #FF3636;
+    background-color: white;
+    font-size: 150%;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid black; }
+  body #order_box .add_cart:hover {
+    color: white;
+    background-color: #02CB02;
+    cursor: pointer; }
+body #cart_box {
+  background-image: url("https://previews.123rf.com/images/vaaseenaa/vaaseenaa1802/vaaseenaa180200135/95095396-hot-sauce-ingredients-on-a-light-background-food-frame-top-view-copy-space.jpg");
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+   }
+  body #cart_box .name {
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    font-family:"Lucida Handwriting";
+    text-decoration: underline;
+  }
+  body #cart_box .message {
+    font-size: 150%; }
+  body #cart_box .line {
+    font-family: "Garamond", "serif";
+    font-size: 150%;
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-bottom: 5px; }
+  body #cart_box .line:nth-child(odd) {
+    text-decoration-line: underline ; }
+  body #cart_box .total {
+    font-size: 150%;
+    margin-left: 50px;
+    margin-top: 20px; }
+    body #cart_box .total .text {
+      color: red; }
+  body #cart_box .buy {
+    font-size: 150%;
+    margin-left: 50px;
+    margin-top: 10px; }
+  body #cart_box .pending_box {
+    border-radius: 5px;
+    border: 3px solid black;
+    padding: 10px 0px 10px 10px;
+    margin-top: 10px; }
+    body #cart_box .pending_box .username {
+      font-size: 150%;
+      font-weight: bold; }
+    body #cart_box .pending_box .accept {
+      background-color: #02CB02; }
+  body #cart_box .space {
+    height: 50px; }
+  body .footer{
+    background: #4ff5ff;
+    width: auto;
+    height: 100px;
+  }
