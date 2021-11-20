@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chu</title>
+
+    <!-- Icon FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Bayon' rel='stylesheet'>
+    <link href="http://fonts.cdnfonts.com/css/kg-happy" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/kg-tangled-up-in-you" rel="stylesheet">
+
+
+    <!-- Carousel JQuery -->
+    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container wrapper_content-h">
+            <div class="d-flex align-items-start justify-content-between">
+                <div class="logo-full" style="width: 75px; height: 164.028px;">
+                    <a href="./">
+                       <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+                    </a>
+                </div>
+                <div class="center_links-h">
+                    <a href="">HOME</a>
+                    <a href="http://127.0.0.1:8000/home/">MENU</a>
+                    <a href="http://127.0.0.1:8000/home/">LOCATIONS</a>
+                    <a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
+<!--                    <a href="">CAREERS</a>-->
+                </div>
+                <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+                <div class="main_links-h">    
+                    <div class="fixed-h nav">
+                        <a class="nav-link" href="http://127.0.0.1:8000/home/"><i class="fas fa-shopping-bag"></i>Book a Table</a>
+                        <a class="nav-link" href="http://127.0.0.1:8000/home/" data-backdrop="false" data-toggle="modal" data-target="#modal_pho_to_go-h">
+                            <i class="fas fa-map-marker-alt"></i>Pho To Go</a>
+                        <a class="nav-link" href="" data-backdrop="false" data-toggle="modal" data-target="#modal_nav_menu-h">
+                            <i class="fas fa-bars"></i></a> 
+                             
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </header>
+
+    <!-- Body -->
+    <div class="entire_body">
+        <div class="background">
+            <div class="background_color-h"></div>
+            <div class="background_image-h">
+                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/title-bg.jpg" alt="">
+            </div>
+            <div class="background_gradient-h"></div>
+
+        </div>
+        <div class="foreground">
+            <main class="content">
+                <div class="front_page_gradient-h"></div>
+
+                <!-- Section Home -->
+                <section class="section_size-h full_screen-h">
+                    <div class="wrapper_image-h">
+                        <img src="https://anhdep.tv/attachments/7c78bb3bff36837b27af694df49a7614-jpeg.7436/" alt="" style="width: 100%">
+
+                    </div>
+                    <div class="container wrapper_content-h position_title-h">
+                        <div class="section_title-h">
+                            <div class="swipe_effect-h">
+                                <p class="swipe_text-h">Pinochio's Pizza & Subs</p>
+                            </div>
+                        </div>
+                        <div class="section_actions-h row justify-content-center">
+                            <a href="http://127.0.0.1:8000/home/">Regular Pizza</a>
+                            <a href="http://127.0.0.1:8000/home/">Sicilian Pizza</a>
+                            <a href="http://127.0.0.1:8000/home/">Subs</a>
+                            <a href="http://127.0.0.1:8000/home/">Pasta</a>
+                            <a href="http://127.0.0.1:8000/home/">Dinner Platters</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section Column Content -->
+                <!-- Section content Sales-->
+                <section class="col_content-h full_screen-h">
+
+                    <!-- <div class="bg_container-h">
+                        <img src="./images/home/Nutrition-Single-Background2.jpg" alt="">
+                    </div> -->
+
+                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
+                        <div class="text col-md-6">
+                            <div class="title_bg_red-h">
+                                <p>25% OFF</p>
+                            </div>
+                            <div class="title_bg_white-h">
+                                <p>Regular Pizza</p>
+                            </div>
+                            <div class="box_info-h">
+                                <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
+                                <a href="javascript:void(0)" class="button-h">Booking Now</a>
+                             </div>
+                        </div>
+                        <div class="image col-md-6">
+                            <div class="border-image">
+                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/pizza-de-la-casa.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Section content Careers -->
+                <section class="col_content-h full_screen-h">
+
+                    <!-- <div class="bg_container-h">
+                        <img src="./images/home/background-2D2E30-1.jpg" alt="">
+                    </div> -->
+
+                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
+
+                        <div class="text col-md-6">
+                            <div class="title_bg_red-h">
+                                <p>Buy 1 Get 2</p>
+                            </div>
+                            <div class="title_bg_white-h">
+                                <p>SICILIAN PIZZA</p>
+                            </div>
+                            <div class="box_info-h">
+                                 <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
+                                <a href="http://127.0.0.1:8000/home/" class="button-h">Booking Now</a>
+                             </div>
+                        </div>
+                        <div class="image col-md-6">
+                            <div class="border-image">
+                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/pizza-caprese.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Section content Now Open -->
+                <section class="col_content-h full_screen-h">
+
+                    <!-- <div class="bg_container-h">
+                        <img src="./images/home/Home-Background-2.jpg" alt="">
+                    </div> -->
+
+                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
+                        <div class="text col-md-6">
+                            <div class="title_bg_red-h">
+                                <p>So Fresh</p>
+                            </div>
+                            <div class="title_bg_white-h">
+                                <p>SALADS</p>
+                            </div>
+                            <div class="box_info-h">
+                                 <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
+                                <a href="http://127.0.0.1:8000/home/" class="button-h">Booking Now</a>
+                            </div>
+                        </div>
+                        <div class="image col-md-6">
+                            <div class="border-image">
+                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2021/04/salata-greceasca.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Section content Covid Policy -->
+                <section class="col_content-h full_screen-h">
+
+                    <!-- <div class="bg_container-h">
+                        <img src="./images/home/Menu-Background.jpg" alt="">
+                    </div> -->
+
+                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
+
+                        <div class="text col-md-6">
+                            <div class="title_bg_red-h">
+                                <p>COVID-19 POLICY</p>
+                            </div>
+                            <div class="title_bg_white-h">
+                                <p>Keeping you safe</p>
+                            </div>
+                            <div class="box_info-h">
+                                <p>Information on how we're keeping our teams and our customers happy and safe during
+                                    this time.</p>
+                                <a href="" class="button-h">COVID-19 POLICY</a>
+                            </div>
+                        </div>
+
+                        <div class="image col-md-6">
+                            <div class="border-image">
+                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/pizza-quatro-stagioni-880x510.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Signup Form & Social Media -->
+                <div class="signup_social-h">
+                    <div class="container-fluid wrapper_content-h">
+                        <div class="row align-items-center">
+
+                            <div class="signup-h col-md-6">
+
+                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" alt="Notepad illustration" style="width: 60px " />
+
+                                <form action="">
+                                    <label for="EMAIL">NEWS AND OFFERS</label>
+                                    <div class="">
+                                        <input type="email" value="" class="input_email-h" placeholder="Email" required>
+                                        <input type="submit" value="Submit" class="input_submit-h button-h">
+                                        <div class="checkbox_holder-h">
+                                            <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
+                                                required>
+                                            <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+                                                can find more information in our <a target="_blank"
+                                                    href="/privacy">Privacy Policy</a></p>
+                                        </div>
+                                        <p class="error-h">Please agree to the privacy policy</p>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                            <div class="social-h col-md-6">
+
+                                <h3>GET SOCIAL</h3>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="youtube"><i class="fab fa-youtube"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="">
+        <div class="wrapper_content-h">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./html/careers.html">Contact: +84 971 208 019</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Privacy</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <p class="copyright-h">© Copyright Pinochio 2021.</p>
+            <a class="product_link-h" href="javascript:void(0)">Website by team 4 of Python 8</a>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Bootstrap 4 JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="{% static 'order/trangchu.js' %}"></script>
+</body>
+
+</html>
