@@ -148,13 +148,13 @@ header .main_links-h {
 }
 
 header .main_links-h a:hover {
-  background-color: #e21837;
+  background-color: #9bcfd4;
   text-decoration: none;
 }
 
 header .main_links-h a {
   margin-right: -3px;
-  background-color: #52a9d6;
+  background-color: #E21837;
   color: #fff;
   padding: 20px 25px;
   display: inline-block;
@@ -167,9 +167,10 @@ header .main_links-h a {
 }
 
 header .main_links-h a:last-child:hover {
-  background-color: #000;
+  background-color:#9bcfd4;
   position: relative;
   padding: 0px;
+ 
 }
 
 header .main_links-h a:last-child:hover i {
@@ -180,16 +181,15 @@ header .main_links-h a:last-child:hover i {
 }
 
 header .main_links-h a:last-child {
-  width: 62px;
-  height: 66px;
   background-color: #e21837;
-  font-size: 26px;
+  font-size: 20px;
   padding: 19px 18px;
-  vertical-align: middle;
+  vertical-align: bottom;
+  font-family: inherit;
 }
 
 header .main_links-h a i {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 header .main_links-h a:last-child i {
@@ -949,7 +949,8 @@ footer a:hover {
   }
 
   footer {
-    padding: 30px 0px;
+    padding: 15px 0px;
+
   }
 }
 
@@ -959,6 +960,13 @@ footer a:hover {
 body .center_links-h {
   text-align: right;
 }
+body .signup_social-h{
+  background-image: url('https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/title-bg.jpg');
+}
+body {
+  background-image: url('https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/title-bg.jpg');
+}
+
 
 body .center_links-h a {
   font-family: Bayon;
@@ -1000,7 +1008,7 @@ body .center_links-h a::after {
 body #header {
   width: 100%;
   height: 13vh;
-  background-color: #4ff5ff;
+  background-color: #A4DAC8;
   background-image: url("https://bcassetcdn.com/social/dvg0v9n1cs/preview.png"); /* thêm logo đổi màu*/
   background-repeat: no-repeat;
   background-position: left;
@@ -1023,7 +1031,7 @@ body #header .text {
 body #header .log {
   font-size: 130%;
   font-weight: bold;
-  color: red;
+  color: #000;
   text-decoration: none;
   width: 5%;
   text-align: center;
@@ -1033,16 +1041,17 @@ body #header .log {
 body #header .mycart {
   font-size: 130%;
   font-weight: bold;
-  color: red;
+  color: #000;
   text-decoration: none;
   width: 5%;
   text-align: center;
   outline: none;
 }
+
 body #direction_link {
   display: flex;
   width: 100%;
-  height: 40px;
+  height: px;
   background-color: #f53434;
   justify-content: center;
   border-top: 2px solid white;
@@ -1074,17 +1083,20 @@ body #index_box {
   background-color: #ebebeb;
 }
 body #index_box .title {
-  font-size: 150%;
-  font-weight: bolder;
+  font-size: 180%;
+  font-family: 'Bayon';
+  
   text-align: center;
-  margin-top: 300px;
+  margin-top: 300px
+;
 }
 body #index_box .head {
   margin-top: 20px;
 }
 body #index_box .head .text {
   font-size: 180%;
-  font-weight: bold;
+  margin-left: 30px;
+  font-family: Bayon;
 }
 body #index_box .head .line {
   border-top: 5px double black;
@@ -1122,6 +1134,7 @@ body #index_box .item .size_large {
 body #index_box .dinner_platter {
   padding-bottom: 50px;
 }
+
 body #order_box {
   width: auto;
   padding: 30px;
@@ -1129,7 +1142,7 @@ body #order_box {
   background-repeat: no-repeat;
   background-position: right;
   background-size: auto;
-  background-color: #eaff82;
+  background-color: #D1E3EC
 }
 body #order_box .name {
   padding: 20px 0px;
