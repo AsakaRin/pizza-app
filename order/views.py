@@ -12,6 +12,19 @@ PENDING = {}
 
 COMPLETED = {}
 
+def index(request):
+
+	context = {
+		"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
+		"sicilian_pizza": Sicilian_Pizza.objects.all(),
+		"sub": Sub.objects.all(),
+		"pasta": Pasta.objects.all(),
+		"salad": Salad.objects.all(),
+		"dinner_platter": Dinner_Platter.objects.all(),
+	}
+
+	return render(request, "order/index.html", context)
+
 def home(request):
 
 	context = {

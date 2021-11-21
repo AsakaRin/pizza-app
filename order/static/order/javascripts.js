@@ -1,3 +1,7 @@
+/*js trang chu*/
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	var option = document.getElementsByName('option')[0].value;
