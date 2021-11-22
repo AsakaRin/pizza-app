@@ -61,19 +61,20 @@
 		      </div>
    			<div class="regular_pizza">
    				<div class="head">
-   					<div class="text">Regular Pizza</div>
+   					<div class="text">Searched Result</div>
    					<div class="line"></div>
    				</div>
       			<div class="course">
-      			{% if regular_pizza %}
+      			{% if venues %}
       				<div class="item">
       					<div class="course"></div>
       					<div class="size_small">Small</div>
       					<div class="size_large">Large</div>
       				</div>
-      				{% for item in regular_pizza %}
+      				{% for item in venues %}
       					<div class="item">
-      						<a href="regular_pizza/{{item.id}}" class="course">{{item.course}}</a>
+      						<!-- <a href="regular_pizza/{{item.id}}" class="course">{{item.course}}</a> -->
+      						<a href="#" class="course">{{item.course}}</a>
       						<div class="size_small">{{item.size_small}}</div>
       						<div class="size_large">{{item.size_large}}</div>
       					</div>
@@ -82,117 +83,7 @@
       				No Selection
       			{% endif %}
       			</div>
-   			</div>
-   			<div class="sicilian_pizza">
-   				<div class="head">
-   					<div class="text">Sicilian Pizza</div>
-   					<div class="line"></div>
-   				</div>
-   				<div>
-      				{% if sicilian_pizza %}
-      					<div class="item">
-	      					<div class="course"></div>
-	      					<div class="size_small">Small</div>
-	      					<div class="size_large">Large</div>
-      					</div>
-      					{% for item in sicilian_pizza %}
-      						<div class="item">
-	      						<a href="sicilian_pizza/{{item.id}}" class="course">{{item.course}}</a>
-	      						<div class="size_small">{{item.size_small}}</div>
-	      						<div class="size_large">{{item.size_large}}</div>
-      						</div>
-      					{% endfor %}
-  					{% else %}
-						No Selection
-      				{% endif %}
-   				</div>
-   			</div>
-   		<div class="sub">
-   			<div class="head">
-   				<div class="text">Subs</div>
-   				<div class="line"></div>
-      		</div>
-      		<div>
-      		{% if sub %}
-      			<div class="item">
-			      <div class="course"></div>
-			      <div class="size_small">Small</div>
-			      <div class="size_large">Large</div>
-      			</div>
-	      		{% for item in sub %}
-	      			<div class="item">
-	      				<a href="sub/{{item.id}}" class="course">{{item.course}}</a>
-		      			<div class="size_small">{{item.size_small}}</div>
-		      			<div class="size_large">{{item.size_large}}</div>
-		      		</div>
-	      		{% endfor %}
-      		{% else %}
-      			No Selection
-      		{% endif %}
-      		</div>
-   		</div>
-      	<div class="pasta">
-      		<div class="head">
-      			<div class="text">Pasta</div>
-      			<div class="line"></div>
-      		</div>
-      		<div>
-      		{% if pasta %}
-      			{% for item in pasta %}
-      				<div class="item">
-				      <a href="pasta/{{item.id}}" class="course">{{item.course}}</a>
-				      <div class="size_small" style="width: 10%;"></div>
-				      <div class="size_large" style="width: 50%;">{{item.price}}</div>
-      				</div>
-      			{% endfor %}
-      		{% else %}
-      			No Selection
-      		{% endif %}
-      		</div>
-      	</div>
-  		<div class="salad">
-  			<div class="head">
-		      <div class="text">Salads</div>
-		      <div class="line"></div>
-  			</div>
-  			<div>
-  			{% if salad %}
-  				{% for item in salad %}
-  					<div class="item">
-  						<a href="salad/{{item.id}}" class="course">{{item.course}}</a>
-  						<div class="size_small" style="width: 10%;"></div>
-  						<div class="size_large" style="width: 50%;">{{item.price}}</div>
-  					</div>
-  				{% endfor %}
-  			{% else %}
-  				No Selection
-  			{% endif %}
-  			</div>
-  		</div>
-  		<div class="dinner_platter">
-  			<div class="head">
-  				<div class="text">Dinner Platters</div>
-  				<div class="line"></div>
-  			</div>
-  			<div>
-  			{% if dinner_platter %}
-  				<div class="item">
-  					<div class="course"></div>
-  					<div class="size_small">Small</div>
-  					<div class="size_large">Large</div>
-  				</div>
-  				{% for item in dinner_platter %}
-  					<div class="item">
-  						<a href="dinner_platter/{{item.id}}" class="course">{{item.course}}</a>
-  						<div class="size_small">{{item.size_small}}</div>
-  						<div class="size_large">{{item.size_large}}</div>
-  					</div>
-  				{% endfor %}
-  			{% else %}
-  				No Selection
-  			{% endif %}
-  			</div>
-  		</div>
+			</div>
       	<div class="signup_social-h">
       		<div class="container-fluid wrapper_content-h">
       			<div class="row align-items-center">

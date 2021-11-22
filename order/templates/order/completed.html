@@ -1,155 +1,172 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
-	<head>
-
-		<title>Pinochio's Pizza & Subs: Completed</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
-		<script type="text/javascript" src="{% static 'order/cart.js' %}"></script>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
-		<!-- Icon FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Bayon' rel='stylesheet'>
-    <link href="http://fonts.cdnfonts.com/css/kg-happy" rel="stylesheet">
-    <link href="http://fonts.cdnfonts.com/css/kg-tangled-up-in-you" rel="stylesheet">
-	</head>
-
-	<body>
-		<div id="header">
-			<a href="{% url 'home' %}" class="text">Pinochio's Pizza & Subs</a>
-			{% if user.is_authenticated %}
-				<a href="{% url 'logout' %}" class="log">Logout</a>
-				<a href="{% url 'mycart' %}" class="mycart">Cart</a>
-			{% else %}
-				<a href="{% url 'login' %}" class="log">Login</a>
-			{% endif %}
-		</div>
-		<div id="direction_link">
-			<a href="{% url 'cart' %}">My cart</a>
-			<a href="{% url 'pending' %}">Pending</a>
-			<a href="{% url 'completed' %}">Completed</a>
-		</div>
-		<div id="cart_box">
-			<div class="name">Completed</div>
-			{% if completed %}
-				{% if user.is_superuser %}
-					<input type="hidden" name="user" class="user" value="superuser">
-					{% for username, cart in completed.items %}
-						<div class="pending_box">
-							<div class="username">{{username}}</div>
-							{% for line in cart %}
-								<div class="line">
-									<div>{{line.note}}</div>
-									<input type="hidden" name="price" value="{{line.price}}"></input>
-								</div>
-							{% endfor %}
-							<div class="total row">
-								<div class="text">Total: $</div>
-								{% for key, value in costs.items %}
-									{% if key == username %}
-										<div class="number">{{value}}</div>
-									{% endif %}
-								{% endfor %}
-							</div>
-						</div>
-						<div class="space"></div>
-					{% endfor %}
-				{% else %}
-					<input type="hidden" name="user" class="user" value="normaluser">
-					{% for line in completed %}
-						<div class="line">
-							<div>{{line.note}}</div>
-							<input type="hidden" name="price" value="{{line.price}}"></input>
-						</div>
-					{% endfor %}
-					<div class="total row">
-						<div class="text">Total: $</div>
-						<div class="number"></div>
-					</div>
-					<div class="space"></div>
-				{% endif %}
-			{% else %}
-				<div class="message">You have no completed orders</div>
-			{% endif %}
-		</div>
-
-		<div class="signup_social-h">
-                    <div class="container-fluid wrapper_content-h">
-                        <div class="row align-items-center">
-
-                            <div class="signup-h col-md-6">
-
-                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" alt="Notepad illustration" style="width: 60px " />
-
-                                <form action="">
-                                    <label for="EMAIL">NEWS AND OFFERS</label>
-                                    <div class="">
-                                        <input type="email" value="" class="input_email-h" placeholder="Email" required>
-                                        <input type="submit" value="Submit" class="input_submit-h button-h">
-                                        <div class="checkbox_holder-h">
-                                            <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
-                                                required>
-                                            <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
-                                                can find more information in our <a target="_blank"
-                                                    href="/privacy">Privacy Policy</a></p>
-                                        </div>
-                                        <p class="error-h">Please agree to the privacy policy</p>
-                                    </div>
-                                </form>
-
-                            </div>
-
-                            <div class="social-h col-md-6">
-
-                                <h3>GET SOCIAL</h3>
-                                <ul>
-                                    <li>
-                                        <a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="youtube"><i class="fab fa-youtube"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                </ul>
-
-                            </div>
-
+   <head>
+      <title>Pinochio's Pizza & Subs: Cart</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
+      <script type="text/javascript" src="{% static 'order/cart.js' %}"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+      <!-- Icon FontAwesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <!-- Fonts -->
+      <link href='https://fonts.googleapis.com/css?family=Bayon' rel='stylesheet'>
+      <link href="http://fonts.cdnfonts.com/css/kg-happy" rel="stylesheet">
+      <link href="http://fonts.cdnfonts.com/css/kg-tangled-up-in-you" rel="stylesheet">
+   </head>
+   <body>
+      <header>
+         <div class="container wrapper_content-h">
+            <div class="d-flex align-items-start justify-content-between">
+               <div class="logo-full" style="width: 75px; height: 164.028px;">
+                  <a href="./">
+                  <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+                  </a>
+               </div>
+               <div class="center_links-h">
+                  <a href="{% url 'index' %}">HOME</a>
+                  <a href="{% url 'home' %}">MENU</a>
+                  <a href="http://127.0.0.1:8000/home/">LOCATIONS</a>
+                  <a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
+               </div>
+               <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+               <div class="main_links-h">
+                  <div class="fixed-h nav">
+                     <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
+                     <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <div class="entire_body">
+         <div class="foreground">
+            <main class="content">
+               <section >
+                  <div class="container wrapper_content-h position_title-h">
+                     <p class="no-animation" style="text-align: center">Completed</p>
+                  </div>
+               </section>
+            </main>
+         </div>
+      </div>
+      <div id="index_box">
+         <div id="direction_link">
+            <a href="{% url 'cart' %}">My cart</a>
+            <a href="{% url 'pending' %}">Pending</a>
+            <a href="{% url 'completed' %}">Completed</a>
+         </div>
+         <div id="cart_box">
+         {% if completed %}
+         {% if user.is_superuser %}
+         <input type="hidden" name="user" class="user" value="superuser">
+         {% for username, cart in completed.items %}
+         <div class="pending_box">
+            <div class="username">{{username}}</div>
+            {% for line in cart %}
+            <div class="line">
+               <div>{{line.note}}</div>
+               <input type="hidden" name="price" value="{{line.price}}"></input>
+            </div>
+            {% endfor %}
+            <div class="total row">
+               <div class="text">Total: $</div>
+               {% for key, value in costs.items %}
+               {% if key == username %}
+               <div class="number">{{value}}</div>
+               {% endif %}
+               {% endfor %}
+            </div>
+         </div>
+         <div class="space"></div>
+         {% endfor %}
+         {% else %}
+         <input type="hidden" name="user" class="user" value="normaluser">
+         {% for line in completed %}
+         <div class="line">
+            <div>{{line.note}}</div>
+            <input type="hidden" name="price" value="{{line.price}}"></input>
+         </div>
+         {% endfor %}
+         <div class="total row">
+            <div class="text">Total: $</div>
+            <div class="number"></div>
+         </div>
+         <div class="space"></div>
+         {% endif %}
+         {% else %}
+         <div class="message">You have no completed orders</div>
+         {% endif %}
+      </div>
+      </div>
+      <div class="signup_social-h">
+         <div class="container-fluid wrapper_content-h">
+            <div class="row align-items-center">
+               <div class="signup-h col-md-6">
+                  <form action="">
+                     <label for="EMAIL">NEWS AND OFFERS</label>
+                     <div class="">
+                        <input type="email" value="" class="input_email-h" placeholder="Email" required>
+                        <input type="submit" value="Submit" class="input_submit-h button-h">
+                        <div class="checkbox_holder-h">
+                           <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
+                              required>
+                           <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+                              can find more information in our <a target="_blank"
+                                 href="/privacy">Privacy Policy</a>
+                           </p>
                         </div>
-                    </div>
-                </div>
-				<footer class="">
-        <div class="wrapper_content-h">
+                        <p class="error-h">Please agree to the privacy policy</p>
+                     </div>
+                  </form>
+               </div>
+               <div class="social-h col-md-6">
+                  <h3>GET SOCIAL</h3>
+                  <ul>
+                     <li>
+                        <a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                     </li>
+                     <li>
+                        <a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i></a>
+                     </li>
+                     <li>
+                        <a href="javascript:void(0)" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                     </li>
+                     <li>
+                        <a href="javascript:void(0)" class="youtube"><i class="fab fa-youtube"></i></a>
+                     </li>
+                     <li>
+                        <a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer class="">
+         <div class="wrapper_content-h">
             <nav>
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./html/careers.html">Contact: +84 971 208 019</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Privacy</a>
-                    </li>
-
-                </ul>
+               <ul class="nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="">Careers</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="">Privacy</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="">Gift vouchers</a>
+                  </li>
+               </ul>
             </nav>
-            <p class="copyright-h">© Copyright Pinochio 2021.</p>
-            <a class="product_link-h" href="javascript:void(0)">Website by team 4 of Python 8</a>
-        </div>
-    </footer>
-</div>
-	</body>
+            <p class="copyright-h">© Copyright  2021.</p>
+            <a class="product_link-h" href="javascript:void(0)">Website by Team4 </a>
+         </div>
+      </footer>
+   </body>
 </html>
+1

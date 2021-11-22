@@ -12,6 +12,31 @@ PENDING = {}
 
 COMPLETED = {}
 
+def search(request):
+
+	context = {
+		"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
+		"sicilian_pizza": Sicilian_Pizza.objects.all(),
+		"sub": Sub.objects.all(),
+		"pasta": Pasta.objects.all(),
+		"salad": Salad.objects.all(),
+		"dinner_platter": Dinner_Platter.objects.all(),
+	}
+
+	print(context)
+
+	if request.method=="POST":
+		searched = request.POST['searched']
+		venues = []
+		for value in context.values():
+			venues.extend(value.filter(course__contains=searched)) 
+		# venues = Regular_Pizza.objects.filter(course__contains=searched)
+		print(venues)
+		return render(request, "order/search.html", {'searched' : searched, 'venues':venues})
+
+	else:
+		return render(request, "order/search.html", {})
+
 def index(request):
 
 	context = {

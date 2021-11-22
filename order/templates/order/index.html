@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chu</title>
+    <title>Pinochio's Pizza & Subs: Menu</title>
 
     <!-- Icon FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -40,8 +40,8 @@
                     </a>
                 </div>
                 <div class="center_links-h">
-                    <a href="">HOME</a>
-                    <a href="http://127.0.0.1:8000/home/">MENU</a>
+                    <a href="{% url 'index' %}">HOME</a>
+                    <a href="{% url 'home' %}">MENU</a>
                     <a href="http://127.0.0.1:8000/home/">LOCATIONS</a>
                     <a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
 <!--                    <a href="">CAREERS</a>-->
@@ -49,12 +49,8 @@
                 <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
                 <div class="main_links-h">    
                     <div class="fixed-h nav">
-                        <a class="nav-link" href="http://127.0.0.1:8000/home/"><i class="fas fa-shopping-bag"></i>Book Now</a>
-                        <a class="nav-link" href="http://127.0.0.1:8000/home/" data-backdrop="false" data-toggle="modal" data-target="#modal_pho_to_go-h">
-                            <i class="fas fa-map-marker-alt"></i>Back To Home</a>
-                        <a class="nav-link" href="" data-backdrop="false" data-toggle="modal" data-target="#modal_nav_menu-h">
-                            <i class="fas fa-bars"></i></a> 
-                             
+                        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-shopping-bag"></i>Book Now</a>
+                        <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
                     </div>
                 </div>
             </div>

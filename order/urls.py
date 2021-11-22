@@ -3,7 +3,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-	path("", views.home, name="home"), 
+	path("", views.index, name="index"),
+	path("menu", views.home, name="home"), 
 	path("<str:option>/<int:item_id>", views.custom, name="custom"),
 	path("cart", views.cart, name="cart"),
 	path("mycart", views.mycart, name="mycart"),
@@ -11,5 +12,5 @@ urlpatterns = [
 	path("processing", views.processing, name="processing"),
 	path("completed", views.completed, name="completed"),
 	path("confirm", views.confirm, name="confirm"),
-	path("index", views.index, name="index")
+	path("search", views.search, name="search")
 ]
