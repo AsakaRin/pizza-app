@@ -1480,3 +1480,27 @@ footer a:hover {
   text-decoration: none;
   color: rgb(226, 24, 55);
 }
+/* contact form */
+.input-contact {
+  width: 100%;
+  height: auto;
+}
+.contact-item input
+{
+    width: 100%;
+    padding: 10px;
+}
+.btn {
+  padding: 4% 10%;
+  background-color: #E21837;
+  color: white;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}

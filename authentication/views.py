@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def index(request):
 
 	context = {
 		"user": request.user
+		
 	}	
 
 	return HttpResponseRedirect(reverse("home"))
@@ -67,3 +69,6 @@ def logout_view(request):
 
 	logout(request)
 	return HttpResponseRedirect(reverse("login"))
+
+
+

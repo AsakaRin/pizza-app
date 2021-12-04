@@ -463,3 +463,25 @@ def confirm(request):
 		PENDING.pop(username, None)
 
 	return HttpResponseRedirect(reverse("pending"))
+
+def contact(request):
+	if request.method=="POST":
+		message_name = request.POST['message-name']
+		message_email= request.POST['message-email']
+		message =request.POST['message']
+		return render(request, "order/contact.html", {'message_name': message_name})
+		send_mail(
+			message_name,
+			message,
+			message_email,
+			['anhnn.ptit17@gmail.com'],
+		)
+
+	else:
+		return render(request, "order/contact.html", {})
+		
+
+
+
+
+
