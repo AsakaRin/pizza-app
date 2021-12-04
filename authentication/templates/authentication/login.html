@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns:https="http://www.w3.org/1999/xhtml">
 
 	<head>
 		<title>Pinochio's Pizza & Subs/login</title>
@@ -10,14 +10,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="{% static 'authentication/stylesheets.css' %}">
+		<style>
+			body {
+				background-image: url('https://tophinhanhdep.com/wp-content/uploads/2021/10/32K-Ultra-HD-Nature-Wallpapers-1024x576.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+		</style>
 	</head>
 
 	<body>
-		<div id="header">Pinochio's Pizza & Subs</div>
+		<div style="background-color: #007bff" id="header">Pinochio's Pizza & Subs</div>
 		<div id="login_box">
-			<form action="{% url 'login' %}" method="post">
+
+		<form style="background-color: black" action="{% url 'login' %}" method="post">
+
 				{% csrf_token %}
-				<div class="head">Login Form</div>
+				<div class="head">
+					<img style=" width: 150px;height: 150px;border-radius: 50%;position:relative;top:-20px;background-color: black" src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" >
+
+				</div>
 				<input type="text" name="username" placeholder="Username" class="form-control username" autofocus="" autocomplete="off" required="">
 				<input type="password" name="password" placeholder="Password" class="form-control" autocomplete="off" required="">
 				<div class="forgotten"><a href="#">Forgotten account?</a></div>

@@ -463,3 +463,5 @@ def confirm(request):
 		PENDING.pop(username, None)
 
 	return HttpResponseRedirect(reverse("pending"))
+def location(request):
+	return render(request, "order/location.html")

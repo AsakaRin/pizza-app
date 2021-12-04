@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pinochio's Pizza & Subs: Menu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Bayon' rel='stylesheet'>
+    <link href="http://fonts.cdnfonts.com/css/kg-happy" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/kg-tangled-up-in-you" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+</head>
+<body>
+<header>
+    <div class="container wrapper_content-h">
+        <div class="d-flex align-items-start justify-content-between">
+            <div class="logo-full" style="width: 75px; height: 164.028px;">
+                <a href="./">
+                    <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+                </a>
+            </div>
+            <div class="center_links-h">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="{% url 'home' %}">MENU</a>
+                <a href="{% url 'location' %}">LOCATIONS</a>
+                <a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
+            </div>
+            <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+            <div class="main_links-h">
+                <div class="fixed-h nav">
+                    <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
+                    <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="entire_body">
+    <div class="foreground">
+        <main class="content">
+            <section >
+                <div class="container wrapper_content-h position_title-h">
+                    <p class="no-animation" style="text-align: center">Contact Us</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+<div style="background-color: #72fdff " id="index_box">
+    <div class="title"></div>
+        <div class="location">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7859750.627586734!2d102.20168217291987!3d15.868741035663602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8ba8a21981%3A0xcd603091516ef764!2sPizza%20Hut%20Vincom%20B%C3%A0%20Tri%E1%BB%87u!5e0!3m2!1svi!2s!4v1638063870691!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div id="contact">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i> </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>Pinocchio's Pizza
+                            74 Winthrop Street
+                            Cambridge, MA 02138</p>
+                    </div>
+
+                    <div class="icon"> <i class="fa fa-phone-square" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>Our phone numbers are 617-876-4897 or 617-876-0012</p>
+                          <p> Our fax number is 617-661-6188</p>
+                    </div>
+
+                    <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                    <div class="text">
+                        <h3>Mail</h3>
+                        <p>If you have any questions or comments or would like to</p>
+                        <p>get on our email list you can email us at</p>
+                        <a>pinocchiospizza1@gmail.com</a>
+                    </div>
+
+                </div>
+        </div>
+
+    </div>
+    <div class="signup_social-h">
+        <div class="container-fluid wrapper_content-h">
+            <div class="row align-items-center">
+                <div class="signup-h col-md-6">
+                    <form action="">
+                        <label for="EMAIL">NEWS AND OFFERS</label>
+                        <div class="">
+                            <input type="email" value="" class="input_email-h" placeholder="Email" required>
+                            <input type="submit" value="Submit" class="input_submit-h button-h">
+                            <div class="checkbox_holder-h">
+                                <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
+                                       required>
+                                <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+                                    can find more information in our <a target="_blank"
+                                                                        href="/privacy">Privacy Policy</a></p>
+                            </div>
+                            <p class="error-h">Please agree to the privacy policy</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="social-h col-md-6">
+                    <h3>GET SOCIAL</h3>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="youtube"><i class="fab fa-youtube"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="">
+        <div class="wrapper_content-h">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Gift vouchers</a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="copyright-h">© Copyright  2021.</p>
+            <a class="product_link-h" href="javascript:void(0)">Website by Team4 </a>
+        </div>
+    </footer>
+    <!-- Bootstrap 4 JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+1
+1

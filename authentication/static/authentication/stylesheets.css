@@ -1,10 +1,8 @@
-* {
-  background-color: #fff;
-}
+
 body #header {
   width: 100%;
   height: 10vh;
-  background-color: #9bcfd4;
+  background-color: #007bff;
   color: #000;
   display: flex;
   align-items: center;
@@ -20,12 +18,12 @@ body #login_box {
   min-height: 600px;
   justify-content: center;
   align-items: center;
+
 }
 body #register_box form,
 body #login_box form {
   width: 400px;
   height: 500px;
-  background-color: #dfdcd2;
   border-radius: 5px;
 }
 body #register_box form .head,

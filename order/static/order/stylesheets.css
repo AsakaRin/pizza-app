@@ -1285,6 +1285,24 @@ body #cart_box .pending_box .accept {
 body #cart_box .space {
   height: 50px;
 }
+/*   Locations */
+  #location{
+  width: auto;
+  height: auto;
+  background-color:#9bcfd4;
+}
+ #contact{
+  float: right;
+   margin-right: 100px;
+}
+#contact .icon{
+   align-items: center;
+  margin-top:20px;
+ }
+#contact .text{
+  margin-left: 20px;
+
+}
 
 /*# sourceMappingURL=stylesheets.css.map */
 .signup_social-h {
