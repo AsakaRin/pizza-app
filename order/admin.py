@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db.models.fields.files import ImageField
 
 # Register your models here.
 from .models import Regular_Pizza, Sicilian_Pizza, Sub, Pasta, Salad, Dinner_Platter, Topping, Extra

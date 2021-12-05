@@ -67,12 +67,16 @@
       			<div class="course">
       			{% if regular_pizza %}
       				<div class="item">
+						<div class="img"></div>
       					<div class="course"></div>
       					<div class="size_small">Small</div>
       					<div class="size_large">Large</div>
       				</div>
       				{% for item in regular_pizza %}
       					<div class="item">
+							<div class="img">
+								<img src="order/media/{{item.image}}" alt="my image" style="width:80px ;height=80px">
+							</div>
       						<a href="regular_pizza/{{item.id}}" class="course">{{item.course}}</a>
       						<div class="size_small">{{item.size_small}}</div>
       						<div class="size_large">{{item.size_large}}</div>
@@ -91,12 +95,16 @@
    				<div>
       				{% if sicilian_pizza %}
       					<div class="item">
+							<div class="img"></div>
 	      					<div class="course"></div>
 	      					<div class="size_small">Small</div>
 	      					<div class="size_large">Large</div>
       					</div>
       					{% for item in sicilian_pizza %}
       						<div class="item">
+								<div class="img">
+									<img src="order/media/{{item.image}}" alt="my image" style="width:80px ;height=80px">
+								</div>
 	      						<a href="sicilian_pizza/{{item.id}}" class="course">{{item.course}}</a>
 	      						<div class="size_small">{{item.size_small}}</div>
 	      						<div class="size_large">{{item.size_large}}</div>
@@ -115,12 +123,16 @@
       		<div>
       		{% if sub %}
       			<div class="item">
+					<div class="img"></div>  
 			      <div class="course"></div>
 			      <div class="size_small">Small</div>
 			      <div class="size_large">Large</div>
       			</div>
 	      		{% for item in sub %}
 	      			<div class="item">
+						<div class="img">
+							<img src="order/media/{{item.image}}" alt="my image" style="width:80px ;height=80px">
+						</div> 
 	      				<a href="sub/{{item.id}}" class="course">{{item.course}}</a>
 		      			<div class="size_small">{{item.size_small}}</div>
 		      			<div class="size_large">{{item.size_large}}</div>
@@ -140,6 +152,9 @@
       		{% if pasta %}
       			{% for item in pasta %}
       				<div class="item">
+						<div class="img">
+							<img src="order/media/{{item.image}}" alt="my image" style="width:80px ;height=80px">
+						</div>  
 				      <a href="pasta/{{item.id}}" class="course">{{item.course}}</a>
 				      <div class="size_small" style="width: 10%;"></div>
 				      <div class="size_large" style="width: 50%;">{{item.price}}</div>
@@ -159,6 +174,9 @@
   			{% if salad %}
   				{% for item in salad %}
   					<div class="item">
+						<div class="img">
+							<img src="order/media/{{item.image}}" alt="my image" style="width:80px ;height=80px">
+						</div>
   						<a href="salad/{{item.id}}" class="course">{{item.course}}</a>
   						<div class="size_small" style="width: 10%;"></div>
   						<div class="size_large" style="width: 50%;">{{item.price}}</div>
@@ -177,12 +195,16 @@
   			<div>
   			{% if dinner_platter %}
   				<div class="item">
+					<div class="img"></div>
   					<div class="course"></div>
   					<div class="size_small">Small</div>
   					<div class="size_large">Large</div>
   				</div>
   				{% for item in dinner_platter %}
   					<div class="item">
+						<div class="img">
+							<img src="order/media/{{item.image}}" alt="my image" style="width:80px ;height=80px">
+						</div>
   						<a href="dinner_platter/{{item.id}}" class="course">{{item.course}}</a>
   						<div class="size_small">{{item.size_small}}</div>
   						<div class="size_large">{{item.size_large}}</div>
