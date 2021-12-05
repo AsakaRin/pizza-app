@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Pinochio's Pizza & Subs: Menu</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <!-- Fonts -->
+      <link href='https://fonts.googleapis.com/css?family=Bayon' rel='stylesheet'>
+      <link href="http://fonts.cdnfonts.com/css/kg-happy" rel="stylesheet">
+      <link href="http://fonts.cdnfonts.com/css/kg-tangled-up-in-you" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+   </head>
+   <body>
+      <header>
+      	<div class="container wrapper_content-h">
+      		<div class="d-flex align-items-start justify-content-between">
+      			<div class="logo-full" style="width: 75px; height: 164.028px;">
+      				<a href="./">
+      					<img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+      				</a>
+      			</div>
+      			<div class="center_links-h">
+      				<a href="{% url 'index' %}">HOME</a>
+      				<a href="{% url 'home' %}">MENU</a>
+      				<a href="http://127.0.0.1:8000/home/">LOCATIONS</a>
+      				<a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
+      			</div>
+      			<!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+	      		<div class="main_links-h">    
+	      			<div class="fixed-h nav">
+	      				<a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
+	      				<a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+	      			</div>
+	      		</div>
+      		</div>
+      	</div>
+      </header>
+
+
+		<div class="entire_body">
+			<div class="foreground">
+				<main class="content">
+					<section >
+						<div class="container wrapper_content-h position_title-h">
+							<p class="no-animation" style="text-align: center">Contact Us</p>
+						</div>
+					</section>
+				</main>
+			</div>
+		</div>
+
+	  <div id="index_box">
+	  		{% if message_name %}
+			  <br/><br/>
+			  <center>
+				  <h2>
+					  Thanks {{ message_name}}!
+				  </h2>
+				  <p>We received your email and will respond early.</p>
+				  <br/><br/>
+			  </center>
+		  {% else %}
+			<form action="{% url 'contact' %}" method="post">
+				{% csrf_token %}
+				<div class="row input-contact">
+					<div class="col-md-6 contact-item">
+						<label for="">Full name</label>
+						<input type="text"  name="message-name" placeholder="Full name" required>
+					</div>
+					<div class="col-md-6 contact-item">
+						<label for="">Email Address</label>
+						<input type="email"  name="message-email" placeholder="Email address" required>
+					</div>
+				</div><br>
+				
+				<div class="row input-contact">
+					<div class="col-md-12 contact-item">
+						<label for="">Your Message</label>
+						<textarea name="message" id="" cols="30" rows="10" placeholder="Your message" required></textarea>
+					</div>
+				</div>
+				<button type="submit">Send</button>
+			</form>
+		  {% endif %}
+	  </div>
+
+
+      <footer class="">
+         <div class="wrapper_content-h">
+            <nav>
+               <ul class="nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="">Careers</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="">Privacy</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="">Gift vouchers</a>
+                  </li>
+               </ul>
+            </nav>
+            <p class="copyright-h">© Copyright  2021.</p>
+            <a class="product_link-h" href="javascript:void(0)">Website by Team4 </a>
+         </div>
+      </footer>
+
+
+
+           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+           integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     </body>
+</html>

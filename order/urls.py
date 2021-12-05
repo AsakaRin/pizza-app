@@ -14,4 +14,5 @@ urlpatterns = [
 	path("confirm", views.confirm, name="confirm"),
 	path("search", views.search, name="search"),
 	path("location", views.location, name="location"),
+	path("contact",views.contact,name="contact")
 ]

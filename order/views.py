@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Regular_Pizza, Sicilian_Pizza, Sub, Pasta, Salad, Dinner_Platter, Topping, Extra
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 
@@ -463,5 +464,24 @@ def confirm(request):
 		PENDING.pop(username, None)
 
 	return HttpResponseRedirect(reverse("pending"))
+
 def location(request):
 	return render(request, "order/location.html")
+
+def contact(request):
+	if request.method=="POST":
+		message_name = request.POST['message-name']
+		message_email= request.POST['message-email']
+		message =request.POST['message']
+		send_mail(
+			message_name,
+			message,
+			message_email,
+			# ['anhnn.ptit17@gmail.com'],
+			['phanthin1912@gmail.com'],
+		)
+		print(message_name)
+		return render(request, "order/contact.html", {'message_name': message_name})		
+
+	else:
+		return render(request, "order/contact.html", {})		
