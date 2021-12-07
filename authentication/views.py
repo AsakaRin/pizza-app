@@ -65,7 +65,7 @@ def register_view(request):
 def logout_view(request):
 
 	if not request.user.is_authenticated:
-		return render(request, "authentication/login.html")
+		return HttpResponseRedirect(reverse("login"))
 
 	logout(request)
 	return HttpResponseRedirect(reverse("login"))

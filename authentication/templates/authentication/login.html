@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'authentication/stylesheets.css' %}">
 		<style>
 			body {
-				background-image: url('https://tophinhanhdep.com/wp-content/uploads/2021/10/32K-Ultra-HD-Nature-Wallpapers-1024x576.jpg');
+				background-image: url('https://marketinja.com/wp-content/uploads/2021/03/v642-nap-26-fastfood-scaled.jpg');
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
@@ -20,25 +20,26 @@
 	</head>
 
 	<body>
-		<div style="background-color: #007bff" id="header">Pinochio's Pizza & Subs</div>
+		<div style="background-color: #E21837; color: white" id="header">Pinochio's Pizza & Subs</div>
 		<div id="login_box">
-
-		<form style="background-color: black" action="{% url 'login' %}" method="post">
-
+			<form style="background-color: #E21837" action="{% url 'login' %}" method="post">
 				{% csrf_token %}
-				<div class="head">
+				<div class="head" style="background-color: #E21837">
 					<img style=" width: 150px;height: 150px;border-radius: 50%;position:relative;top:-20px;background-color: black" src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" >
-
 				</div>
 				<input type="text" name="username" placeholder="Username" class="form-control username" autofocus="" autocomplete="off" required="">
 				<input type="password" name="password" placeholder="Password" class="form-control" autocomplete="off" required="">
-				<div class="forgotten"><a href="#">Forgotten account?</a></div>
-				<div class="submit">
+				<div class="forgotten"><a href="#" style="color: white">Forgotten account?</a></div>
+				<div class="submit" style="color: white">
 					<button type="submit" class="btn btn-primary">Login</button>
-					<div>Create an account? <a href="{% url 'register' %}">Register</a></div>
+					<div>Create an account? <a style="color: white" href="{% url 'register' %}">Register</a></div>
 				</div>
 			</form>
 		</div>
+
+		{% if message %}
+			<script type="text/javascript">alert('{{ message }}');</script>
+		{% endif %}
 	</body>
 
 </html>

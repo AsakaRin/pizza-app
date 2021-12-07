@@ -41,16 +41,19 @@
                 </div>
                 <div class="center_links-h">
                     <a href="{% url 'index' %}">HOME</a>
-                    <a href="{% url 'home' %}">MENU</a>
+                    <a href="{% url 'menu' %}">MENU</a>
                     <a href="{% url 'location' %}">LOCATIONS</a>
-                    <a href="http://127.0.0.1:8000/home/">CONTACT US</a>
-<!--                    <a href="">CAREERS</a>-->
+                    <a href="{% url 'contact' %}">CONTACT US</a>
                 </div>
-                <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+
                 <div class="main_links-h">    
                     <div class="fixed-h nav">
-                        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-shopping-bag"></i>Book Now</a>
-                        <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                        <a class="nav-link" href="{% url 'menu' %}"><i class="fas fa-shopping-bag"></i>Book Now</a>
+                        {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
+                        {% endif %}                        
                     </div>
                 </div>
             </div>
@@ -86,22 +89,16 @@
                             </div>
                         </div>
                         <div class="section_actions-h row justify-content-center">
-                            <a href="http://127.0.0.1:8000/home/">Regular Pizza</a>
-                            <a href="http://127.0.0.1:8000/home/">Sicilian Pizza</a>
-                            <a href="http://127.0.0.1:8000/home/">Subs</a>
-                            <a href="http://127.0.0.1:8000/home/">Pasta</a>
-                            <a href="http://127.0.0.1:8000/home/">Dinner Platters</a>
+                            <a href="{% url 'menu' %}">Regular Pizza</a>
+                            <a href="{% url 'menu' %}">Sicilian Pizza</a>
+                            <a href="{% url 'menu' %}">Subs</a>
+                            <a href="{% url 'menu' %}">Pasta</a>
+                            <a href="{% url 'menu' %}">Dinner Platters</a>
                         </div>
                     </div>
                 </section>
 
-                <!-- Section Column Content -->
-                <!-- Section content Sales-->
                 <section class="col_content-h full_screen-h">
-
-                    <!-- <div class="bg_container-h">
-                        <img src="./images/home/Nutrition-Single-Background2.jpg" alt="">
-                    </div> -->
 
                     <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
                         <div class="text col-md-6">
@@ -113,7 +110,7 @@
                             </div>
                             <div class="box_info-h">
                                 <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
-                                <a href="javascript:void(0)" class="button-h">Booking Now</a>
+                                <a href="{% url 'menu' %}" class="button-h">Booking Now</a>
                              </div>
                         </div>
                         <div class="image col-md-6">
@@ -125,12 +122,7 @@
 
                 </section>
 
-                <!-- Section content Careers -->
                 <section class="col_content-h full_screen-h">
-
-                    <!-- <div class="bg_container-h">
-                        <img src="./images/home/background-2D2E30-1.jpg" alt="">
-                    </div> -->
 
                     <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
 
@@ -143,7 +135,7 @@
                             </div>
                             <div class="box_info-h">
                                  <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
-                                <a href="http://127.0.0.1:8000/home/" class="button-h">Booking Now</a>
+                                <a href="{% url 'menu' %}" class="button-h">Booking Now</a>
                              </div>
                         </div>
                         <div class="image col-md-6">
@@ -155,12 +147,7 @@
 
                 </section>
 
-                <!-- Section content Now Open -->
                 <section class="col_content-h full_screen-h">
-
-                    <!-- <div class="bg_container-h">
-                        <img src="./images/home/Home-Background-2.jpg" alt="">
-                    </div> -->
 
                     <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
                         <div class="text col-md-6">
@@ -172,7 +159,7 @@
                             </div>
                             <div class="box_info-h">
                                  <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
-                                <a href="http://127.0.0.1:8000/home/" class="button-h">Booking Now</a>
+                                <a href="{% url 'menu' %}" class="button-h">Booking Now</a>
                             </div>
                         </div>
                         <div class="image col-md-6">
@@ -184,12 +171,7 @@
 
                 </section>
 
-                <!-- Section content Covid Policy -->
                 <section class="col_content-h full_screen-h">
-
-                    <!-- <div class="bg_container-h">
-                        <img src="./images/home/Menu-Background.jpg" alt="">
-                    </div> -->
 
                     <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
 
@@ -203,7 +185,7 @@
                             <div class="box_info-h">
                                 <p>Information on how we're keeping our teams and our customers happy and safe during
                                     this time.</p>
-                                <a href="" class="button-h">COVID-19 POLICY</a>
+                                <a href="{% url 'menu' %}" class="button-h">COVID-19 POLICY</a>
                             </div>
                         </div>
 
@@ -216,7 +198,6 @@
 
                 </section>
 
-                <!-- Signup Form & Social Media -->
                 <div class="signup_social-h">
                     <div class="container-fluid wrapper_content-h">
                         <div class="row align-items-center">
@@ -248,19 +229,19 @@
                                 <h3>GET SOCIAL</h3>
                                 <ul>
                                     <li>
-                                        <a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i></a>
+                                        <a href="#" class="insta"><i class="fab fa-instagram"></i></a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                                        <a href="#" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" class="youtube"><i class="fab fa-youtube"></i></a>
+                                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
                                     </li>
                                 </ul>
 
@@ -280,19 +261,19 @@
             <nav>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./html/careers.html">Contact: +84 971 208 019</a>
+                        <a class="nav-link" href="#">Contact: +84 971 208 019</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">FAQs</a>
+                        <a class="nav-link" href="#">FAQs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Privacy</a>
+                        <a class="nav-link" href="#">Privacy</a>
                     </li>
 
                 </ul>
             </nav>
             <p class="copyright-h">© Copyright Pinochio 2021.</p>
-            <a class="product_link-h" href="javascript:void(0)">Website by team 4 of Python 8</a>
+            <a class="product_link-h" href="#">Website by team 4 of Python 8</a>
         </div>
     </footer>
 
@@ -300,8 +281,7 @@
 
 
     <!-- Bootstrap 4 JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">

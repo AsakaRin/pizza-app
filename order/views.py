@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate
+from django.http.response import Http404
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Regular_Pizza, Sicilian_Pizza, Sub, Pasta, Salad, Dinner_Platter, Topping, Extra
@@ -51,7 +52,7 @@ def index(request):
 
 	return render(request, "order/index.html", context)
 
-def home(request):
+def menu(request):
 
 	context = {
 		"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
@@ -62,7 +63,7 @@ def home(request):
 		"dinner_platter": Dinner_Platter.objects.all(),
 	}
 
-	return render(request, "order/home.html", context)
+	return render(request, "order/menu.html", context)
 
 def custom(request, option, item_id):
 
@@ -361,7 +362,7 @@ def processing(request):
 		return render(request, "authentication/login.html", {"message": None})
 
 	if request.user.username not in CART:
-		return HttpResponseRedirect(reverse("home"))
+		return HttpResponseRedirect(reverse("menu"))
 
 	PENDING[request.user.username] = CART[request.user.username]
 	CART.pop(request.user.username, None)
@@ -450,7 +451,7 @@ def confirm(request):
 
 	if not request.user.is_superuser:
 
-		return HttpResponseRedirect(reverse("home"))
+		return HttpResponseRedirect(reverse("menu"))
 
 	if request.method == "POST":
 

@@ -1090,7 +1090,7 @@ body #index_box .title {
 ;
 }
 body #index_box .head {
-  margin-top: 20px;
+  padding-top:  50px;
 }
 body #index_box .head .text {
   font-size: 180%;
@@ -1107,6 +1107,10 @@ body #index_box .item {
   width: 100%;
   font-size: 150%;
   outline: none;
+  align-items: center;
+  margin-top:  10px;
+  padding-left:  50px;
+  padding-right: 50px;
 }
 body #index_box .item .course {
   display: flex;

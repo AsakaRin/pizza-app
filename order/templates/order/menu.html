@@ -24,18 +24,22 @@
       				</a>
       			</div>
       			<div class="center_links-h">
-      				<a href="{% url 'index' %}">HOME</a>
-      				<a href="{% url 'home' %}">MENU</a>
-      				<a href="{% url 'location' %}">LOCATIONS</a>
-      				<a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
-      			</div>
-      			<!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+                 <a href="{% url 'index' %}">HOME</a>
+                 <a href="{% url 'menu' %}">MENU</a>
+                 <a href="{% url 'location' %}">LOCATIONS</a>
+                 <a href="{% url 'contact' %}">CONTACT US</a>
+               </div>
+      			
 	      		<div class="main_links-h">    
-	      			<div class="fixed-h nav">
-	      				<a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
-	      				<a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
-	      			</div>
-	      		</div>
+                    <div class="fixed-h nav">
+                        <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
+                        {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
+                        {% endif %}                        
+                    </div>
+                </div>
       		</div>
       	</div>
       </header>
@@ -52,11 +56,11 @@
    		</div>
    		<div id="index_box">
    			<div class="title">Our course</div>
-   			<div id="search">
-		         <form class="d-flex" method=POST action="{% url 'search' %}">
+   			<div id="search" style="display: flex; justify-content: end">
+		         <form class="d-flex mr-4 mt-4" method=POST action="{% url 'search' %}">
 		            {% csrf_token %}
-		            <input class="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" name = "searched">
-		            <button class="btn btn-outline-secondary" type="submit">Search</button>
+		            <button style="padding: 0.375rem 0.75rem; margin-top: 0px; margin-right: 10px" class="btn btn-outline-secondary" type="submit">Search</button>
+		            <input class="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" name = "searched">		            
 		         </form>
 		      </div>
    			<div class="regular_pizza">
@@ -67,12 +71,18 @@
       			<div class="course">
       			{% if regular_pizza %}
       				<div class="item">
+						<div class="img">
+							<div style="width:80px; height:80px"></div>
+						</div>
       					<div class="course"></div>
       					<div class="size_small">Small</div>
       					<div class="size_large">Large</div>
       				</div>
       				{% for item in regular_pizza %}
       					<div class="item">
+							<div class="img">
+								<img src="{{item.image.url}}" alt="my image" style="width:80px ;height:80px">
+							</div>
       						<a href="regular_pizza/{{item.id}}" class="course">{{item.course}}</a>
       						<div class="size_small">{{item.size_small}}</div>
       						<div class="size_large">{{item.size_large}}</div>
@@ -91,12 +101,18 @@
    				<div>
       				{% if sicilian_pizza %}
       					<div class="item">
+							<div class="img">
+								<div style="width:80px; height:80px"></div>
+							</div>
 	      					<div class="course"></div>
 	      					<div class="size_small">Small</div>
 	      					<div class="size_large">Large</div>
       					</div>
       					{% for item in sicilian_pizza %}
       						<div class="item">
+								<div class="img">
+									<img src="{{item.image.url}}" alt="my image" style="width:80px ;height:80px">
+								</div>
 	      						<a href="sicilian_pizza/{{item.id}}" class="course">{{item.course}}</a>
 	      						<div class="size_small">{{item.size_small}}</div>
 	      						<div class="size_large">{{item.size_large}}</div>
@@ -115,12 +131,18 @@
       		<div>
       		{% if sub %}
       			<div class="item">
-			      <div class="course"></div>
-			      <div class="size_small">Small</div>
-			      <div class="size_large">Large</div>
+						<div class="img">
+							<div style="width:80px; height:80px"></div>
+						</div>  
+			      	<div class="course"></div>
+				      <div class="size_small">Small</div>
+				      <div class="size_large">Large</div>
       			</div>
 	      		{% for item in sub %}
 	      			<div class="item">
+						<div class="img">
+							<img src="{{item.image.url}}" alt="my image" style="width:80px ;height:80px">
+						</div> 
 	      				<a href="sub/{{item.id}}" class="course">{{item.course}}</a>
 		      			<div class="size_small">{{item.size_small}}</div>
 		      			<div class="size_large">{{item.size_large}}</div>
@@ -138,8 +160,19 @@
       		</div>
       		<div>
       		{% if pasta %}
+	      		<div class="item">
+						<div class="img">
+							<div style="width:80px; height:80px"></div>
+						</div>  
+			      	<div class="course"></div>
+				      <div class="size_small" style="width: 10%;"></div>
+				      <div class="size_large" style="width: 50%;">Price</div>
+      			</div>
       			{% for item in pasta %}
       				<div class="item">
+						<div class="img">
+							<img src="{{item.image.url}}" alt="my image" style="width:80px ;height:80px">
+						</div>  
 				      <a href="pasta/{{item.id}}" class="course">{{item.course}}</a>
 				      <div class="size_small" style="width: 10%;"></div>
 				      <div class="size_large" style="width: 50%;">{{item.price}}</div>
@@ -157,8 +190,19 @@
   			</div>
   			<div>
   			{% if salad %}
+	  			<div class="item">
+					<div class="img">
+						<div style="width:80px; height:80px"></div>
+					</div>  
+		      	<div class="course"></div>
+			      <div class="size_small" style="width: 10%;"></div>
+			      <div class="size_large" style="width: 50%;">Price</div>
+				</div>
   				{% for item in salad %}
   					<div class="item">
+						<div class="img">
+							<img src="{{item.image.url}}" alt="my image" style="width:80px ;height:80px">
+						</div>
   						<a href="salad/{{item.id}}" class="course">{{item.course}}</a>
   						<div class="size_small" style="width: 10%;"></div>
   						<div class="size_large" style="width: 50%;">{{item.price}}</div>
@@ -177,12 +221,18 @@
   			<div>
   			{% if dinner_platter %}
   				<div class="item">
-  					<div class="course"></div>
-  					<div class="size_small">Small</div>
-  					<div class="size_large">Large</div>
-  				</div>
+					<div class="img">
+						<div style="width:80px; height:80px"></div>
+					</div>  
+		      	<div class="course"></div>
+			      <div class="size_small">Small</div>
+			      <div class="size_large">Large</div>
+   			</div>
   				{% for item in dinner_platter %}
   					<div class="item">
+						<div class="img">
+							<img src="{{item.image.url}}" alt="my image" style="width:80px ;height:80px">
+						</div>
   						<a href="dinner_platter/{{item.id}}" class="course">{{item.course}}</a>
   						<div class="size_small">{{item.size_small}}</div>
   						<div class="size_large">{{item.size_large}}</div>
