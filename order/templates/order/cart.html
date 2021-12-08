@@ -26,18 +26,22 @@
                   </a>
                </div>
                <div class="center_links-h">
-                  <a href="{% url 'index' %}">HOME</a>
-                  <a href="{% url 'home' %}">MENU</a>
-                  <a href="{% url 'location' %}">LOCATIONS</a>
-                  <a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
-               </div>
-               <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
-               <div class="main_links-h">
-                  <div class="fixed-h nav">
-                     <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
-                     <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
-                  </div>
-               </div>
+                    <a href="{% url 'index' %}">HOME</a>
+                    <a href="{% url 'menu' %}">MENU</a>
+                    <a href="{% url 'location' %}">LOCATIONS</a>
+                    <a href="{% url 'contact' %}">CONTACT US</a>
+                </div>
+
+                <div class="main_links-h">    
+                    <div class="fixed-h nav">
+                        <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
+                        {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
+                        {% endif %}                        
+                    </div>
+                </div>
             </div>
          </div>
       </header>
@@ -58,25 +62,33 @@
             <a href="{% url 'pending' %}">Pending</a>
             <a href="{% url 'completed' %}">Completed</a>
          </div>
-         <div id="cart_box">
-            {% if cart %}
-                <input type="hidden" name="username" class="user" value="{{normaluser}}">
-                {% for line in cart %}
-                    <div class="line">
-                        <div>{{line.note}}</div>
-                        <input type="hidden" name="price" value="{{line.price}}"></input>
-                    </div>
-                {% endfor %}
-                <div class="total row">
-                   <div class="text">Total: $</div>
-                   <div class="number"></div>
-                </div>
-                <a href="{% url 'processing' %}"><button class="buy btn btn-primary">Buy now</button></a>
+         <div id="cart_box" style="padding: 10px">
+            {% if user.is_superuser %}
+
+               <div class="message" style="text-align: center">Welcome Administrator</div>
+
             {% else %}
-                <div class="message">Your cart is empty</div>
-                <input type="hidden" name="total" class="total">
-                <div class="space"></div>
-            {% endif %}
+
+               {% if cart %}
+                   <input type="hidden" name="username" class="user" value="{{normaluser}}">
+                   {% for line in cart %}
+                       <div class="line">
+                           <div>{{line.note}}</div>
+                           <input type="hidden" name="price" value="{{line.price}}"></input>
+                       </div>
+                   {% endfor %}
+                   <div class="total row">
+                      <div class="text">Total: $</div>
+                      <div class="number"></div>
+                   </div>
+                   <a href="{% url 'processing' %}"><button style="padding: 0.375rem 0.75rem; margin-top: 0px; margin-right: 10px" class="buy btn btn-primary">Buy now</button></a>
+               {% else %}
+                   <div class="message" style="text-align: center">Your cart is empty</div>
+                   <input type="hidden" name="total" class="total">
+                   <div class="space"></div>
+               {% endif %}
+
+            {% endif %}            
          </div>
       </div>
       <div class="signup_social-h">

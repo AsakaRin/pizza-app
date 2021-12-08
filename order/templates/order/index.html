@@ -48,7 +48,7 @@
 
                 <div class="main_links-h">    
                     <div class="fixed-h nav">
-                        <a class="nav-link" href="{% url 'menu' %}"><i class="fas fa-shopping-bag"></i>Book Now</a>
+                        <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
                         {% if user.is_authenticated %}
                             <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
                         {% else %}
@@ -276,9 +276,6 @@
             <a class="product_link-h" href="#">Website by team 4 of Python 8</a>
         </div>
     </footer>
-
-
-
 
     <!-- Bootstrap 4 JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

@@ -1,10 +1,11 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate
 from django.http.response import Http404
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Regular_Pizza, Sicilian_Pizza, Sub, Pasta, Salad, Dinner_Platter, Topping, Extra
 from django.core.mail import send_mail, BadHeaderError
+from django.core import serializers
 
 # Create your views here.
 
@@ -13,31 +14,6 @@ CART = {}
 PENDING = {}
 
 COMPLETED = {}
-
-def search(request):
-
-	context = {
-		"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
-		"sicilian_pizza": Sicilian_Pizza.objects.all(),
-		"sub": Sub.objects.all(),
-		"pasta": Pasta.objects.all(),
-		"salad": Salad.objects.all(),
-		"dinner_platter": Dinner_Platter.objects.all(),
-	}
-
-	print(context)
-
-	if request.method=="POST":
-		searched = request.POST['searched']
-		venues = []
-		for value in context.values():
-			venues.extend(value.filter(course__contains=searched)) 
-		# venues = Regular_Pizza.objects.filter(course__contains=searched)
-		print(venues)
-		return render(request, "order/search.html", {'searched' : searched, 'venues':venues})
-
-	else:
-		return render(request, "order/search.html", {})
 
 def index(request):
 
@@ -54,16 +30,129 @@ def index(request):
 
 def menu(request):
 
-	context = {
-		"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
-		"sicilian_pizza": Sicilian_Pizza.objects.all(),
-		"sub": Sub.objects.all(),
-		"pasta": Pasta.objects.all(),
-		"salad": Salad.objects.all(),
-		"dinner_platter": Dinner_Platter.objects.all(),
-	}
+	return render(request, "order/menu.html")
 
-	return render(request, "order/menu.html", context)
+def getmenu(request):
+
+	if request.is_ajax and request.method == "GET":
+
+		key = request.GET.get("key", None)		
+
+		context = {
+			"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
+			"sicilian_pizza": Sicilian_Pizza.objects.all(),
+			"sub": Sub.objects.all(),
+			"pasta": Pasta.objects.all(),
+			"salad": Salad.objects.all(),
+			"dinner_platter": Dinner_Platter.objects.all(),
+		}		
+
+		# convert queryset to json
+		data = {}
+		data["regular_pizza"] = []
+		for item in context["regular_pizza"]:
+
+			if key != '' and key != None:
+				if key not in item.course:
+					continue
+
+			obj = {
+				'id': item.id,
+				'course': item.course,
+				'size_small': item.size_small,
+				'size_large': item.size_large,
+				'image_url': item.image.url,
+				'type': 'regular_pizza'
+			}
+			data['regular_pizza'].append(obj)
+
+		data["sicilian_pizza"] = []
+		for item in context["sicilian_pizza"]:
+
+			if key != '' and key != None:
+				if key not in item.course:
+					continue
+
+			obj = {
+				'id': item.id,
+				'course': item.course,
+				'size_small': item.size_small,
+				'size_large': item.size_large,
+				'image_url': item.image.url,
+				'type': 'sicilian_pizza'
+			}
+			data['sicilian_pizza'].append(obj)
+
+		data["sub"] = []
+		for item in context["sub"]:
+
+			if key != '' and key != None:
+				if key not in item.course:
+					continue
+
+			obj = {
+				'id': item.id,
+				'course': item.course,
+				'size_small': item.size_small,
+				'size_large': item.size_large,
+				'image_url': item.image.url,
+				'type': 'sub'
+			}
+			data['sub'].append(obj)
+
+		data["pasta"] = []
+		for item in context["pasta"]:
+
+			if key != '' and key != None:
+				if key not in item.course:
+					continue
+
+			obj = {
+				'id': item.id,
+				'course': item.course,
+				'price': item.price,
+				'image_url': item.image.url,
+				'type': 'pasta'
+			}
+			data['pasta'].append(obj)
+
+		data["salad"] = []
+		for item in context["salad"]:
+
+			if key != '' and key != None:
+				if key not in item.course:
+					continue
+
+			obj = {
+				'id': item.id,
+				'course': item.course,
+				'price': item.price,
+				'image_url': item.image.url,
+				'type': 'salad'
+			}
+			data['salad'].append(obj)
+
+		data["dinner_platter"] = []
+		for item in context["dinner_platter"]:
+
+			if key != '' and key != None:
+				if key not in item.course:
+					continue
+			
+			obj = {
+				'id': item.id,
+				'course': item.course,
+				'size_small': item.size_small,
+				'size_large': item.size_large,
+				'image_url': item.image.url,
+				'type': 'dinner_platter'
+			}
+			data['dinner_platter'].append(obj)
+
+		return JsonResponse(data, status = 200)      
+
+	return JsonResponse({}, status = 400)
+
 
 def custom(request, option, item_id):
 
@@ -174,7 +263,7 @@ def cart(request):
 
 	if not request.user.is_authenticated:
 		
-		return render(request, "authentication/login.html", {"message": None})
+		return HttpResponseRedirect(reverse("login"))
 
 	if request.method == 'POST':
 
@@ -344,7 +433,7 @@ def mycart(request):
 
 	if not request.user.is_authenticated:
 		
-		return render(request, "authentication/login.html", {"message": None})
+		return HttpResponseRedirect(reverse("login"))
 
 	if request.user.username not in CART:
 		return render(request, "order/cart.html")
@@ -474,14 +563,14 @@ def contact(request):
 		message_name = request.POST['message-name']
 		message_email= request.POST['message-email']
 		message =request.POST['message']
+		send_mail
 		send_mail(
-			message_name,
-			message,
-			message_email,
-			# ['anhnn.ptit17@gmail.com'],
-			['phanthin1912@gmail.com'],
+			"Pinochio's Pizza",
+			'Thanks for your response!',
+			'phanthin1912@gmail.com',
+			[message_email],
 		)
-		print(message_name)
+		
 		return render(request, "order/contact.html", {'message_name': message_name})		
 
 	else:

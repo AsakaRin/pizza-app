@@ -1,7 +1,4 @@
 /*js trang chu*/
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
 	var option = document.getElementsByName('option')[0].value;
@@ -89,8 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	//Limit toppings select
-	if ((option == "regular_pizza" && course != "Chesse") || option == "sicilian_pizza" || option == "sub") {
+	if ((option == "regular_pizza" && course != "Cheese") || option == "sicilian_pizza" || option == "sub") {
 
+		console.log(option);
+		console.log(course);
 		var limit = document.querySelector('.limit').value;
 		var checkbox = document.getElementsByName('topping');
 		document.getElementsByName('topping').forEach(box => {

@@ -24,18 +24,22 @@
       				</a>
       			</div>
       			<div class="center_links-h">
-      				<a href="{% url 'index' %}">HOME</a>
-      				<a href="{% url 'home' %}">MENU</a>
-      				<a href="http://127.0.0.1:8000/home/">LOCATIONS</a>
-      				<a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
-      			</div>
-      			<!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
+                 <a href="{% url 'index' %}">HOME</a>
+                 <a href="{% url 'menu' %}">MENU</a>
+                 <a href="{% url 'location' %}">LOCATIONS</a>
+                 <a href="{% url 'contact' %}">CONTACT US</a>
+               </div>
+      			
 	      		<div class="main_links-h">    
-	      			<div class="fixed-h nav">
-	      				<a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
-	      				<a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
-	      			</div>
-	      		</div>
+                  <div class="fixed-h nav">
+                     <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
+                     {% if user.is_authenticated %}
+                         <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                     {% else %}
+                         <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
+                     {% endif %}                        
+                  </div>
+               </div>
       		</div>
       	</div>
       </header>
@@ -53,7 +57,7 @@
 			</div>
 		</div>
 
-	  <div id="index_box">
+	  <div id="index_box" style="margin-bottom: 50px">
 	  		{% if message_name %}
 			  <br/><br/>
 			  <center>
@@ -64,26 +68,26 @@
 				  <br/><br/>
 			  </center>
 		  {% else %}
-			<form action="{% url 'contact' %}" method="post">
+			<form action="{% url 'contact' %}" method="post" style="padding: 20px">
 				{% csrf_token %}
 				<div class="row input-contact">
 					<div class="col-md-6 contact-item">
 						<label for="">Full name</label>
-						<input type="text"  name="message-name" placeholder="Full name" required>
+						<input class="form-control" type="text"  name="message-name" placeholder="Full name" required>
 					</div>
 					<div class="col-md-6 contact-item">
 						<label for="">Email Address</label>
-						<input type="email"  name="message-email" placeholder="Email address" required>
+						<input class="form-control" type="email"  name="message-email" placeholder="Email address" required>
 					</div>
 				</div><br>
 				
 				<div class="row input-contact">
 					<div class="col-md-12 contact-item">
 						<label for="">Your Message</label>
-						<textarea name="message" id="" cols="30" rows="10" placeholder="Your message" required></textarea>
+						<textarea class="form-control" name="message" id="" cols="30" rows="10" placeholder="Your message" required></textarea>
 					</div>
 				</div>
-				<button type="submit">Send</button>
+				<button style="padding: 0.375rem 0.75rem;" type="submit" class="btn btn-primary">Send</button>
 			</form>
 		  {% endif %}
 	  </div>

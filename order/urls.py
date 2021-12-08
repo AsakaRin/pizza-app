@@ -12,7 +12,7 @@ urlpatterns = [
 	path("processing", views.processing, name="processing"),
 	path("completed", views.completed, name="completed"),
 	path("confirm", views.confirm, name="confirm"),
-	path("search", views.search, name="search"),
 	path("location", views.location, name="location"),
-	path("contact",views.contact,name="contact")
+	path("contact", views.contact, name="contact"),
+	path("getmenu", views.getmenu, name="getmenu")
 ]

@@ -26,18 +26,22 @@
                   </a>
                </div>
                <div class="center_links-h">
-                  <a href="{% url 'index' %}">HOME</a>
-                  <a href="{% url 'home' %}">MENU</a>
-                  <a href="{% url 'location' %}">LOCATIONS</a>
-                  <a href="http://127.0.0.1:8000/home/">GET VOUCHERS</a>
-               </div>
-               <!-- <div class="main_links-h" style="width: 406px; height: 66px;"> -->
-               <div class="main_links-h">
-                  <div class="fixed-h nav">
-                     <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i>Go to cart</a>
-                     <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
-                  </div>
-               </div>
+                    <a href="{% url 'index' %}">HOME</a>
+                    <a href="{% url 'menu' %}">MENU</a>
+                    <a href="{% url 'location' %}">LOCATIONS</a>
+                    <a href="{% url 'contact' %}">CONTACT US</a>
+                </div>
+
+                <div class="main_links-h">    
+                    <div class="fixed-h nav">
+                        <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
+                        {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
+                        {% endif %}                        
+                    </div>
+                </div>
             </div>
          </div>
       </header>
@@ -58,46 +62,51 @@
             <a href="{% url 'pending' %}">Pending</a>
             <a href="{% url 'completed' %}">Completed</a>
          </div>
-         <div id="cart_box">
+         <div id="cart_box" style="padding: 10px">
          {% if completed %}
-         {% if user.is_superuser %}
-         <input type="hidden" name="user" class="user" value="superuser">
-         {% for username, cart in completed.items %}
-         <div class="pending_box">
-            <div class="username">{{username}}</div>
-            {% for line in cart %}
-            <div class="line">
-               <div>{{line.note}}</div>
-               <input type="hidden" name="price" value="{{line.price}}"></input>
-            </div>
-            {% endfor %}
-            <div class="total row">
-               <div class="text">Total: $</div>
-               {% for key, value in costs.items %}
-               {% if key == username %}
-               <div class="number">{{value}}</div>
-               {% endif %}
+            {% if user.is_superuser %}
+               <input type="hidden" name="user" class="user" value="superuser">
+               {% for username, cart in completed.items %}
+                  <div class="pending_box">
+                     <div class="username">{{username}}</div>
+                     {% for line in cart %}
+                     <div class="line">
+                        <div>{{line.note}}</div>
+                        <input type="hidden" name="price" value="{{line.price}}"></input>
+                     </div>
+                     {% endfor %}
+                     <div class="total row">
+                        <div class="text">Total: $</div>
+                        {% for key, value in costs.items %}
+                           {% if key == username %}
+                              <div class="number">{{value}}</div>
+                           {% endif %}
+                        {% endfor %}
+                     </div>
+                  </div>
+                  <div class="space"></div>
                {% endfor %}
-            </div>
-         </div>
-         <div class="space"></div>
-         {% endfor %}
+            {% else %}
+               <input type="hidden" name="user" class="user" value="normaluser">
+               {% for line in completed %}
+               <div class="line">
+                  <div>{{line.note}}</div>
+                  <input type="hidden" name="price" value="{{line.price}}"></input>
+               </div>
+               {% endfor %}
+               <div class="total row">
+                  <div class="text">Total: $</div>
+                  <div class="number"></div>
+               </div>
+               <div class="space"></div>
+            {% endif %}
          {% else %}
-         <input type="hidden" name="user" class="user" value="normaluser">
-         {% for line in completed %}
-         <div class="line">
-            <div>{{line.note}}</div>
-            <input type="hidden" name="price" value="{{line.price}}"></input>
-         </div>
-         {% endfor %}
-         <div class="total row">
-            <div class="text">Total: $</div>
-            <div class="number"></div>
-         </div>
-         <div class="space"></div>
-         {% endif %}
-         {% else %}
-         <div class="message">You have no completed orders</div>
+            {% if user.is_superuser %}
+               <div class="message" style="text-align: center">Have a nice day, admin!</div>
+               <div class="message" style="text-align: center">There are no completed orders</div>
+            {% else %}
+               <div class="message" style="text-align: center">You have no completed orders</div>
+            {% endif %}            
          {% endif %}
       </div>
       </div>
