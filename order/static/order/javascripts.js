@@ -86,10 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	//Limit toppings select
-	if ((option == "regular_pizza" && course != "Cheese") || option == "sicilian_pizza" || option == "sub") {
+	if (option == "regular_pizza" || option == "sicilian_pizza" || option == "sub") {
 
-		console.log(option);
-		console.log(course);
 		var limit = document.querySelector('.limit').value;
 		var checkbox = document.getElementsByName('topping');
 		document.getElementsByName('topping').forEach(box => {
@@ -118,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Submit form
 	document.querySelector('.add_cart').onclick = () => {
 
-		if (option == "pasta" || option == "salad" || option == "dinner_platter" || course == "Chesse") {
+		if (option == "pasta" || option == "salad" || option == "dinner_platter") {
 
 			document.getElementsByName('qty')[0].value = document.querySelector('.number').innerHTML;
 			document.getElementsByName('price')[0].value = document.querySelector('.price').innerHTML;

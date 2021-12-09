@@ -548,10 +548,10 @@ def confirm(request):
 		command = request.POST["command"]
 
 		if command == "accept":
-			pass
-		COMPLETED[username] = PENDING[username]
-		
-		PENDING.pop(username, None)
+			COMPLETED[username] = PENDING[username]			
+			PENDING.pop(username, None)
+		else:
+			PENDING.pop(username, None)
 
 	return HttpResponseRedirect(reverse("pending"))
 
