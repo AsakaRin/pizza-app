@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	{% if type_product == "book" %}
+		<h3>Add new book</h3>
+		<form action="addProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td>Book</td>
+					<td>
+						<select name="book">
+							<option>--Book--</option>
+							{% for book in books %}
+								<option value="{{book.id}}">{{book.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="text" name="image"></td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><input type="text" name="price"></td>
+				</tr>
+			</table>
+			<button type="submit">Submit</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "laptop" %}
+		<h3>Add new laptop</h3>
+		<form action="addProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td>Laptop</td>
+					<td>
+						<select name="laptop">
+							<option>--Laptop--</option>
+							{% for laptop in laptops %}
+								<option value="{{laptop.id}}">{{laptop.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="text" name="image"></td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><input type="text" name="price"></td>
+				</tr>
+			</table>
+			<button type="submit">Submit</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "clothes" %}
+		<h3>Add new clothes</h3>
+		<form action="addProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td>Clothes</td>
+					<td>
+						<select name="clothes">
+							<option>--Clothes--</option>
+							{% for clothes in clothess %}
+								<option value="{{clothes.id}}">{{clothes.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="text" name="image"></td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><input type="text" name="price"></td>
+				</tr>
+			</table>
+			<button type="submit">Submit</button>
+		</form>
+		<div>
+	{% endif %}
+</body>
+</html>

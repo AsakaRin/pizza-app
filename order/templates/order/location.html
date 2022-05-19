@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pinochio's Pizza & Subs: Menu</title>
+    <title>Mark Store</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
 </head>
-<body>
+<body style="background-image: url({% static 'authentication/login_background.png' %}); background-size: cover; background-repeat: no-repeat">
 <header>
     <div class="container wrapper_content-h">
         <div class="d-flex align-items-start justify-content-between">
             <div class="logo-full" style="width: 75px; height: 164.028px;">
                 <a href="./">
-                    <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+                   <h4 style="color: white">Mark Store</h4>
                 </a>
             </div>
             <div class="center_links-h">
@@ -28,8 +28,8 @@
                 <a href="{% url 'menu' %}">MENU</a>
                 <a href="{% url 'location' %}">LOCATIONS</a>
                 <a href="{% url 'contact' %}">CONTACT US</a>
-           </div>
-                
+            </div>
+
             <div class="main_links-h">    
                 <div class="fixed-h nav">
                     <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
@@ -41,49 +41,57 @@
                 </div>
             </div>
         </div>
+        
     </div>
-</header>
-<div class="entire_body">
-    <div class="foreground">
-        <main class="content">
-            <section >
-                <div class="container wrapper_content-h position_title-h">
-                    <p class="no-animation" style="text-align: center">Location</p>
-                </div>
-            </section>
-        </main>
-    </div>
-</div>
-<div style="background-color: #72fdff " id="index_box">
-    <div class="title"></div>
-        <div class="location">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7859750.627586734!2d102.20168217291987!3d15.868741035663602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8ba8a21981%3A0xcd603091516ef764!2sPizza%20Hut%20Vincom%20B%C3%A0%20Tri%E1%BB%87u!5e0!3m2!1svi!2s!4v1638063870691!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                <div id="contact">
-                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i> </div>
-                    <div class="text">
-                        <h3>Address</h3>
-                        <p>Pinocchio's Pizza
-                            74 Winthrop Street
-                            Cambridge, MA 02138</p>
-                    </div>
 
-                    <div class="icon"> <i class="fa fa-phone-square" aria-hidden="true"></i></div>
-                    <div class="text">
-                        <h3>Phone</h3>
-                        <p>Our phone numbers are 617-876-4897 or 617-876-0012</p>
-                          <p> Our fax number is 617-661-6188</p>
-                    </div>
+    </header>
+    <div class="entire_body">
+        <div class="background">
+             <div class="background_color-h"></div>
+             <div class="background_image-h">
+             </div>
+             <div class="background_gradient-h"></div>
 
-                    <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i> </div>
-                    <div class="text">
-                        <h3>Mail</h3>
-                        <p>If you have any questions or comments or would like to</p>
-                        <p>get on our email list you can email us at</p>
-                        <a>pinocchiospizza1@gmail.com</a>
+         </div>
+        <div class="foreground">
+            <main class="content">
+                <div class="front_page_gradient-h"></div>
+                <section >
+                    <div class="container wrapper_content-h position_title-h">
+                        <p class="no-animation" style="text-align: center">Location</p>
                     </div>
-
-                </div>
+                </section>
+            </main>
         </div>
+    </div>
+    <div style="background-color: #72fdff " id="index_box">
+        <div class="title"></div>
+            <div class="location">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7859750.627586734!2d102.20168217291987!3d15.868741035663602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab8ba8a21981%3A0xcd603091516ef764!2sPizza%20Hut%20Vincom%20B%C3%A0%20Tri%E1%BB%87u!5e0!3m2!1svi!2s!4v1638063870691!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div id="contact">
+                        <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i> </div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>Mark Store, Trần Phú, Văn Quán, Hà Đông</p>
+                        </div>
+
+                        <div class="icon"> <i class="fa fa-phone-square" aria-hidden="true"></i></div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>Our phone numbers are 617-876-4897 or 617-876-0012</p>
+                              <p> Our fax number is 617-661-6188</p>
+                        </div>
+
+                        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                        <div class="text">
+                            <h3>Mail</h3>
+                            <p>If you have any questions or comments or would like to</p>
+                            <p>get on our email list you can email us at</p>
+                            <a>example@gmail.com</a>
+                        </div>
+
+                    </div>
+            </div>
 
     </div>
     <div class="signup_social-h">
@@ -91,14 +99,14 @@
             <div class="row align-items-center">
                 <div class="signup-h col-md-6">
                     <form action="">
-                        <label for="EMAIL">NEWS AND OFFERS</label>
+                        <label for="EMAIL">NEWS AND ORDERS</label>
                         <div class="">
                             <input type="email" value="" class="input_email-h" placeholder="Email" required>
                             <input type="submit" value="Submit" class="input_submit-h button-h">
                             <div class="checkbox_holder-h">
                                 <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
                                        required>
-                                <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+                                <p>By signing up you are agreeing to receive marketing updates from us. You
                                     can find more information in our <a target="_blank"
                                                                         href="/privacy">Privacy Policy</a></p>
                             </div>

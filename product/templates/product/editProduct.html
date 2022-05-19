@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	{% if type_product == "book" %}
+		<h3>Update book</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Book</td>		
+					<td>
+						<select name="book">
+							<option>--Book--</option>
+							{% for book in books %}								
+								{% if book.id == data.book.id %}
+									<option value="{{book.id}}" selected>{{book.name}}</option>
+								{% else %}
+									<option value="{{book.id}}">{{book.name}}</option>
+								{% endif %}						
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="text" name="image" value="{{data.image}}"></td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><input type="text" name="price" value="{{data.price}}"></td>
+				</tr>				
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "laptop" %}
+		<h3>Update laptop</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Laptop</td>		
+					<td>
+						<select name="laptop">
+							<option>--Laptop--</option>
+							{% for laptop in laptops %}								
+								{% if laptop.id == data.laptop.id %}
+									<option value="{{laptop.id}}" selected>{{laptop.name}}</option>
+								{% else %}
+									<option value="{{laptop.id}}">{{laptop.name}}</option>
+								{% endif %}						
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="text" name="image" value="{{data.image}}"></td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><input type="text" name="price" value="{{data.price}}"></td>
+				</tr>				
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}
+	{% if type_product == "clothes" %}
+		<h3>Update clothes</h3>
+		<form action="updateProductToDB" method="post">
+			{% csrf_token %}
+			<table>
+				<input type="text" hidden name="id" value="{{data.id}}">
+				<tr>
+					<td>Clothes</td>		
+					<td>
+						<select name="clothes">
+							<option>--Clothes--</option>
+							{% for clothes in clothess %}								
+								{% if clothes.id == data.clothes.id %}
+									<option value="{{clothes.id}}" selected>{{clothes.name}}</option>
+								{% else %}
+									<option value="{{clothes.id}}">{{clothes.name}}</option>
+								{% endif %}						
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="text" name="image" value="{{data.image}}"></td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><input type="text" name="price" value="{{data.price}}"></td>
+				</tr>				
+			</table>
+			<button type="submit">Update</button>
+		</form>
+		<div>
+	{% endif %}	
+</body>
+</html>

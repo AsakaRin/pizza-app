@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Manager</title>
+</head>
+<body>
+	{% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+		</ul>
+	{% endif %}
+	<div>
+		<h3>Book</h3> <a href="book/addProduct" >Add new book</a>
+		<ul>
+			{% for item in BookItem %}
+				<li>
+					<div>Name: {{item.book.name}}</div>
+					<div>Author: {{item.book.author.name}}</div>
+					<div>Publisher: {{item.book.publisher.name}}</div>
+					<div>Category: {{item.book.category.name}}</div>
+					<div>Image: {{item.image}}</div>	
+					<div>Price: {{item.price}}</div>																		
+					<div><a href="book/updateProduct/{{item.id}}">Edit</a><a style="margin-left: 10px" href="book/deletedProduct/{{item.id}}">Delete</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Laptop</h3> <a href="laptop/addProduct" >Add new laptop</a>
+		<ul>
+			{% for item in LaptopItem %}
+				<li>
+					<div>Name: {{item.laptop.name}}</div>
+					<div>Producer: {{item.laptop.producer.name}}</div>
+					<div>Type: {{item.laptop.type.name}}</div>
+					<div>Image: {{item.image}}</div>	
+					<div>Price: {{item.price}}</div>																		
+					<div><a href="laptop/updateProduct/{{item.id}}">Edit</a><a style="margin-left: 10px" href="laptop/deletedProduct/{{item.id}}">Delete</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h3>Clothes</h3> <a href="clothes/addProduct" >Add new clothes</a>
+		<ul>
+			{% for item in ClothesItem %}
+				<li>
+					<div>Name: {{item.clothes.name}}</div>
+					<div>Style: {{item.clothes.style.name}}</div>
+					<div>Material: {{item.clothes.material.name}}</div>
+					<div>Image: {{item.image}}</div>	
+					<div>Price: {{item.price}}</div>																		
+					<div><a href="clothes/updateProduct/{{item.id}}">Edit</a><a style="margin-left: 10px" href="clothes/deletedProduct/{{item.id}}">Delete</a></div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</body>
+</html>

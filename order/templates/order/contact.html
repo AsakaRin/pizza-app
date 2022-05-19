@@ -14,40 +14,43 @@
       <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
    </head>
-   <body>
+	<body style="background-image: url({% static 'authentication/login_background.png' %}); background-size: cover; background-repeat: no-repeat">
       <header>
-      	<div class="container wrapper_content-h">
-      		<div class="d-flex align-items-start justify-content-between">
-      			<div class="logo-full" style="width: 75px; height: 164.028px;">
-      				<a href="./">
-      					<img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
-      				</a>
-      			</div>
-      			<div class="center_links-h">
-                 <a href="{% url 'index' %}">HOME</a>
-                 <a href="{% url 'menu' %}">MENU</a>
-                 <a href="{% url 'location' %}">LOCATIONS</a>
-                 <a href="{% url 'contact' %}">CONTACT US</a>
-               </div>
-      			
-	      		<div class="main_links-h">    
-                  <div class="fixed-h nav">
-                     <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
-                     {% if user.is_authenticated %}
-                         <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
-                     {% else %}
-                         <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
-                     {% endif %}                        
-                  </div>
-               </div>
-      		</div>
-      	</div>
-      </header>
+    <div class="container wrapper_content-h">
+        <div class="d-flex align-items-start justify-content-between">
+            <div class="logo-full" style="width: 75px; height: 164.028px;">
+                <a href="./">
+                   <h4 style="color: white">Mark Store</h4>
+                </a>
+            </div>
+            <div class="center_links-h">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="{% url 'menu' %}">MENU</a>
+                <a href="{% url 'location' %}">LOCATIONS</a>
+                <a href="{% url 'contact' %}">CONTACT US</a>
+            </div>
+
+            <div class="main_links-h">    
+                <div class="fixed-h nav">
+                    <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
+                    {% if user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i>Login</a>
+                    {% endif %}                        
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    </header>
 
 
 		<div class="entire_body">
 			<div class="foreground">
 				<main class="content">
+					<div class="front_page_gradient-h"></div>
 					<section >
 						<div class="container wrapper_content-h position_title-h">
 							<p class="no-animation" style="text-align: center">Contact Us</p>

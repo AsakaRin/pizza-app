@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Pinochio's Pizza & Subs: Cart</title>
+      <title>Mark Store</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
             <div class="d-flex align-items-start justify-content-between">
                <div class="logo-full" style="width: 75px; height: 164.028px;">
                   <a href="./">
-                  <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+                  <h4 style="color: white">Mark Store</h4>
                   </a>
                </div>
                <div class="center_links-h">
@@ -62,31 +62,16 @@
             <div style="">You are admin. Don't try to buy anytthing :)</div>
          {% endif %}
 
-         {% if option == "regular_pizza" %}
+         {% if option == "bookItem" %}
             <form action="{% url 'cart' %}" method="post">
                {% csrf_token %}
-               <div class="name">Regular Pizza - {{course}}</div>
+               <div class="name">Book - {{name}}</div>
                <input type="hidden" name="option" value="{{option}}">
-               <input type="hidden" name="course" value="{{course}}">
+               <input type="hidden" name="name" value="{{name}}">               
                <div class="size">
-                  <input type="radio" name="size" data-size="size small" value="{{size_small}}" id="size_small" checked>
-                  <label for="size_small">Size small</label>
-                  <input type="radio" name="size" data-size="size large" value="{{size_large}}" id="size_large">
-                  <label for="size_large">Size large</label>
-                  <input type="hidden" name="type">
-               </div>
-               {% if number_toppings > 0 %}
-                  <div class="select_topping">Select {{number_toppings}} toppings:</div>
-                  <input class="limit" type="hidden" name="number_toppings" value="{{number_toppings}}">
-                  {% for topping in list_toppings %}
-                     <div class="topping">
-                        <input type="checkbox" name="topping" value="{{topping}}">
-                        <label>{{topping}}</label>
-                     </div>
-                  {% endfor %}
-               {% else %}
-                  <div class="select_topping">This course doesn't have toppings</div>
-               {% endif %}
+                  <div>Price: {{price}}</div>
+                  <input type="hidden" name="cost" value="{{price}}">               
+               </div>               
                <div class="qty">
                   <div>Qty:</div>
                   <button type="button" class="subtract" style="justify-content: center">-</button>
@@ -101,37 +86,22 @@
                <input type="hidden" name="price">
                <div class="add_cart">Add to cart</div>
             </form>
-         {% endif %}
-         {% if option == "sicilian_pizza" %}
+         {% endif %}         
+         {% if option == "laptopItem" %}
             <form action="{% url 'cart' %}" method="post">
                {% csrf_token %}
-               <div class="name">Sicilian Pizza - {{course}}</div>
+               <div class="name">Laptop - {{name}}</div>
                <input type="hidden" name="option" value="{{option}}">
-               <input type="hidden" name="course" value="{{course}}">
+               <input type="hidden" name="name" value="{{name}}">               
                <div class="size">
-                  <input type="radio" name="size" data-size="size small" value="{{size_small}}" id="size_small" checked>
-                  <label for="size_small">Size small</label>
-                  <input type="radio" name="size" data-size="size large" value="{{size_large}}" id="size_large">
-                  <label for="size_large">Size large</label>
-                  <input type="hidden" name="type">
-               </div>
-               {% if number_toppings > 0 %}
-                  <div class="select_topping">Select {{number_toppings}} items:</div>
-                  <input class="limit" type="hidden" name="number_toppings" value="{{number_toppings}}">
-                  {% for topping in list_toppings %}
-                  <div class="topping">
-                     <input type="checkbox" name="topping" value="{{topping}}">
-                     <label>{{topping}}</label>
-                  </div>
-                  {% endfor %}
-               {% else %}
-                  <div class="select_topping">This course doesn't have items</div>
-               {% endif %}
+                  <div>Price: {{price}}</div>
+                  <input type="hidden" name="cost" value="{{price}}">               
+               </div>               
                <div class="qty">
                   <div>Qty:</div>
-                  <button type="button" class="subtract">-</button>
+                  <button type="button" class="subtract" style="justify-content: center">-</button>
                   <div class="number">1</div>
-                  <button type="button" class="add">+</button>
+                  <button type="button" class="add" style="justify-content: center">+</button>
                </div>
                <input type="hidden" name="qty">
                <div class="cost">
@@ -141,33 +111,22 @@
                <input type="hidden" name="price">
                <div class="add_cart">Add to cart</div>
             </form>
-         {% endif %}
-         {% if option == "sub" %}
+         {% endif %}   
+         {% if option == "clothesItem" %}
             <form action="{% url 'cart' %}" method="post">
                {% csrf_token %}
-               <div class="name">Subs - {{course}}</div>
+               <div class="name">Clothes - {{name}}</div>
                <input type="hidden" name="option" value="{{option}}">
-               <input type="hidden" name="course" value="{{course}}">
+               <input type="hidden" name="name" value="{{name}}">               
                <div class="size">
-                  <input type="radio" name="size" data-size="size small" value="{{size_small}}" id="size_small" checked>
-                  <label for="size_small">Size small</label>
-                  <input type="radio" name="size" data-size="size large" value="{{size_large}}" id="size_large">
-                  <label for="size_large">Size large</label>
-                  <input type="hidden" name="type">
-               </div>
-               <div class="select_topping">Check on box if you want to use extra item:</div>
-               <input class="limit" type="hidden" name="number_toppings" value="{{list_extras|length}}">
-               {% for extra in list_extras %}
-                  <div class="topping">
-                     <input type="checkbox" name="topping" value="{{extra}}">
-                     <label>{{extra}}</label>
-                  </div>
-               {% endfor %}
+                  <div>Price: {{price}}</div>
+                  <input type="hidden" name="cost" value="{{price}}">               
+               </div>               
                <div class="qty">
                   <div>Qty:</div>
-                  <button type="button" class="subtract">-</button>
+                  <button type="button" class="subtract" style="justify-content: center">-</button>
                   <div class="number">1</div>
-                  <button type="button" class="add">+</button>
+                  <button type="button" class="add" style="justify-content: center">+</button>
                </div>
                <input type="hidden" name="qty">
                <div class="cost">
@@ -177,99 +136,21 @@
                <input type="hidden" name="price">
                <div class="add_cart">Add to cart</div>
             </form>
-         {% endif %}
-         {% if option == "pasta" %}
-            <form action="{% url 'cart' %}" method="post">
-               {% csrf_token %}
-               <div class="name">Pasta - {{course}}</div>
-               <input type="hidden" name="option" value="{{option}}">
-               <input type="hidden" name="course" value="{{course}}">
-               <div class="unit_price">
-                  <div>Unit price: ${{price}}</div>
-                  <input type="hidden" class="unit" name="unit" value="{{price}}">
-               </div>
-               <div class="qty">
-                  <div>Qty:</div>
-                  <button type="button" class="subtract">-</button>
-                  <div class="number">1</div>
-                  <button type="button" class="add">+</button>
-               </div>
-               <input type="hidden" name="qty">
-               <div class="cost">
-                  <div>Price: $</div>
-                  <div class="price"></div>
-               </div>
-               <input type="hidden" name="price">
-               <div class="add_cart">Add to cart</div>
-            </form>
-         {% endif %}
-         {% if option == "salad" %}
-            <form action="{% url 'cart' %}" method="post">
-               {% csrf_token %}
-               <div class="name">Salads - {{course}}</div>
-               <input type="hidden" name="option" value="{{option}}">
-               <input type="hidden" name="course" value="{{course}}">
-               <div class="unit_price">
-                  <div>Unit price: ${{price}}</div>
-                  <input type="hidden" class="unit" name="unit" value="{{price}}">
-               </div>
-               <div class="qty">
-                  <div>Qty:</div>
-                  <button type="button" class="subtract">-</button>
-                  <div class="number">1</div>
-                  <button type="button" class="add">+</button>
-               </div>
-               <input type="hidden" name="qty">
-               <div class="cost">
-                  <div>Price: $</div>
-                  <div class="price"></div>
-               </div>
-               <input type="hidden" name="price">
-               <div class="add_cart">Add to cart</div>
-            </form>
-         {% endif %}
-         {% if option == "dinner_platter" %}
-            <form action="{% url 'cart' %}" method="post">
-               {% csrf_token %}
-               <div class="name">Dinner Platter - {{course}}</div>
-               <input type="hidden" name="option" value="{{option}}">
-               <input type="hidden" name="course" value="{{course}}">
-               <div class="size">
-                  <input type="radio" name="size" data-size="size small" value="{{size_small}}" id="size_small" checked>
-                  <label for="size_small">Size small</label>
-                  <input type="radio" name="size" data-size="size large" value="{{size_large}}" id="size_large">
-                  <label for="size_large">Size large</label>
-                  <input type="hidden" name="type">
-               </div>
-               <div class="qty">
-                  <div>Qty:</div>
-                  <button type="button" class="subtract">-</button>
-                  <div class="number">1</div>
-                  <button type="button" class="add">+</button>
-               </div>
-               <input type="hidden" name="qty">
-               <div class="cost">
-                  <div>Price: $</div>
-                  <div class="price"></div>
-               </div>
-               <input type="hidden" name="price">
-               <div class="add_cart">Add to cart</div>
-            </form>
-         {% endif %}
+         {% endif %}         
       </div>
       <div class="signup_social-h">
          <div class="container-fluid wrapper_content-h">
             <div class="row align-items-center">
                <div class="signup-h col-md-6">
                   <form action="">
-                     <label for="EMAIL">NEWS AND OFFERS</label>
+                     <label for="EMAIL">NEWS AND ORDERS</label>
                      <div class="">
                         <input type="email" value="" class="input_email-h" placeholder="Email" required>
                         <input type="submit" value="Submit" class="input_submit-h button-h">
                         <div class="checkbox_holder-h">
                            <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
                               required>
-                           <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+                           <p>By signing up you are agreeing to receive marketing updates from us. You
                               can find more information in our <a target="_blank"
                                  href="/privacy">Privacy Policy</a>
                            </p>

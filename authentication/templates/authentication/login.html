@@ -5,14 +5,14 @@
 <html xmlns:https="http://www.w3.org/1999/xhtml">
 
 	<head>
-		<title>Pinochio's Pizza & Subs/login</title>
+		<title>MarkStore/login</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="{% static 'authentication/stylesheets.css' %}">
 		<style>
 			body {
-				background-image: url('https://marketinja.com/wp-content/uploads/2021/03/v642-nap-26-fastfood-scaled.jpg');
+				background-image: url('{% static 'authentication/login_background.png' %}');
 				background-repeat: no-repeat;
 				background-size: cover;
 			}
@@ -20,19 +20,20 @@
 	</head>
 
 	<body>
-		<div style="background-color: #E21837; color: white" id="header">Pinochio's Pizza & Subs</div>
+		<div style="background-color: #E21837; color: white; display: none" id="header">Mark Store</div>
 		<div id="login_box">
-			<form style="background-color: #E21837" action="{% url 'login' %}" method="post">
+			<form style="background-color: white" action="{% url 'login' %}" method="post">
 				{% csrf_token %}
-				<div class="head" style="background-color: #E21837">
-					<img style=" width: 150px;height: 150px;border-radius: 50%;position:relative;top:-20px;background-color: black" src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" >
+				<div class="head" style="background-color: #3daca5">
+					<!--<img style=" width: 150px;height: 150px;border-radius: 50%;position:relative;top:-20px;background-color: black" src="" >-->
+					<h4 style="color: white">Mark Store</h4>
 				</div>
 				<input type="text" name="username" placeholder="Username" class="form-control username" autofocus="" autocomplete="off" required="">
 				<input type="password" name="password" placeholder="Password" class="form-control" autocomplete="off" required="">
-				<div class="forgotten"><a href="#" style="color: white">Forgotten account?</a></div>
+				<div class="forgotten"><a href="#" style="color: #3170f0">Forgotten account?</a></div>
 				<div class="submit" style="color: white">
 					<button type="submit" class="btn btn-primary">Login</button>
-					<div>Create an account? <a style="color: white" href="{% url 'register' %}">Register</a></div>
+					<div style="color: #3170f0">Create an account? <a style="color: #3170f0" href="{% url 'register' %}">Register</a></div>
 				</div>
 			</form>
 		</div>

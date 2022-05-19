@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Pinochio's Pizza & Subs: Menu</title>
+      <title>Mark Store: Menu</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -14,23 +14,24 @@
       <link rel="stylesheet" type="text/css" href="{% static 'order/stylesheets.css' %}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">      
    </head>
-   <body>
-      <header>
-      	<div class="container wrapper_content-h">
-      		<div class="d-flex align-items-start justify-content-between">
-      			<div class="logo-full" style="width: 75px; height: 164.028px;">
-      				<a href="./">
-      					<img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
-      				</a>
-      			</div>
-      			<div class="center_links-h">
-                 <a href="{% url 'index' %}">HOME</a>
-                 <a href="{% url 'menu' %}">MENU</a>
-                 <a href="{% url 'location' %}">LOCATIONS</a>
-                 <a href="{% url 'contact' %}">CONTACT US</a>
-               </div>
-      			
-	      		<div class="main_links-h">    
+   <body style="background-image: url({% static 'authentication/login_background.png' %}); background-size: cover; background-repeat: no-repeat"
+      <!-- Header -->
+    <header>
+        <div class="container wrapper_content-h">
+            <div class="d-flex align-items-start justify-content-between">
+                <div class="logo-full" style="width: 75px; height: 164.028px;">
+                    <a href="./">
+                       <h4 style="color: white">Mark Store</h4>
+                    </a>
+                </div>
+                <div class="center_links-h">
+                    <a href="{% url 'index' %}">HOME</a>
+                    <a href="{% url 'menu' %}">MENU</a>
+                    <a href="{% url 'location' %}">LOCATIONS</a>
+                    <a href="{% url 'contact' %}">CONTACT US</a>
+                </div>
+
+                <div class="main_links-h">    
                     <div class="fixed-h nav">
                         <a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-bag"></i>Cart</a>
                         {% if user.is_authenticated %}
@@ -40,31 +41,37 @@
                         {% endif %}                        
                     </div>
                 </div>
-      		</div>
-      	</div>
-      </header>
+            </div>
+            
+        </div>
+
+    </header>
    		<div class="entire_body">
+   			<div class="background">
+		         <div class="background_color-h"></div>
+		         <div class="background_image-h">
+		         </div>
+		         <div class="background_gradient-h"></div>
+
+		     </div>
    			<div class="foreground">
    				<main class="content">
-   					<section >
-   						<div class="container wrapper_content-h position_title-h">
-   							<p class="no-animation" style="text-align: center">Menu</p>
-   						</div>
-   					</section>
+   					<div class="front_page_gradient-h"></div>
+	                
    				</main>
    			</div>
    		</div>
-   		<div id="index_box">
-   			<div class="title">Our course</div>
+   		<div id="index_box" style="margin-top: -350px">
+   			<div class="title">Our product</div>
    			<div id="search" style="display: flex; justify-content: end">
 		         <div class="d-flex mr-4 mt-4">
 		            <button style="padding: 0.375rem 0.75rem; margin-top: 0px; margin-right: 10px" class="btn btn-outline-secondary" type="button" onclick="getmenu('key')">Search</button>
-		            <input id="key" class="form-control me-2" type="search" placeholder="Search Food" aria-label="Search" name = "searched">		            
+		            <input id="key" class="form-control me-2" type="search" placeholder="Search ..." aria-label="Search" name = "searched">		            
 		         </div>
 		      </div>
    			<div class="regular_pizza">
    				<div class="head">
-   					<div class="text">Regular Pizza</div>
+   					<div class="text">Book</div>
    					<div class="line"></div>
    				</div>
       			<div class="course">
@@ -75,7 +82,7 @@
    			</div>
    			<div class="sicilian_pizza">
    				<div class="head">
-   					<div class="text">Sicilian Pizza</div>
+   					<div class="text">Laptop</div>
    					<div class="line"></div>
    				</div>
    				<div class="course">
@@ -86,7 +93,7 @@
    			</div>
    		<div class="sub">
    			<div class="head">
-   				<div class="text">Subs</div>
+   				<div class="text">Clothes</div>
    				<div class="line"></div>
       		</div>
       		<div class="course">
@@ -94,53 +101,20 @@
 
 
       		</div>
-   		</div>
-      	<div class="pasta">
-      		<div class="head">
-      			<div class="text">Pasta</div>
-      			<div class="line"></div>
-      		</div>
-      		<div class="course">
-	      		
-      			
-
-      		</div>
-      	</div>
-  		<div class="salad">
-  			<div class="head">
-		      <div class="text">Salads</div>
-		      <div class="line"></div>
-  			</div>
-  			<div class="course">
-	  			
-
-
-  			</div>
-  		</div>
-  		<div class="dinner_platter">
-  			<div class="head">
-  				<div class="text">Dinner Platters</div>
-  				<div class="line"></div>
-  			</div>
-  			<div class="course">
-  				
-  				
-
-  			</div>
-  		</div>
+   		</div>      	
       	<div class="signup_social-h">
       		<div class="container-fluid wrapper_content-h">
       			<div class="row align-items-center">
       				<div class="signup-h col-md-6">
       					<form action="">
-      						<label for="EMAIL">NEWS AND OFFERS</label>
+      						<label for="EMAIL">NEWS AND ORDERS</label>
       						<div class="">
       							<input type="email" value="" class="input_email-h" placeholder="Email" required>
       							<input type="submit" value="Submit" class="input_submit-h button-h">
       							<div class="checkbox_holder-h">
       								<input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
          							required>
-      								<p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+      								<p>By signing up you are agreeing to receive marketing updates from us. You
       								can find more information in our <a target="_blank"
          							href="/privacy">Privacy Policy</a></p>
       							</div>
@@ -226,13 +200,13 @@
 										<div style="width:80px; height:80px"></div>
 									</div>
 			      					<div class="course"></div>
-			      					<div class="size_small">Small</div>
-			      					<div class="size_large">Large</div>
+			      					<div class="size_small">Price</div>
+			      					<div class="size_large" style="display: none">Price</div>
 		      				</div>
 
 			        		`;
 			            
-			            for (let i = 0;  i < res['regular_pizza'].length; i++) {
+			            for (let i = 0;  i < res['BookItem'].length; i++) {
 
 			            	var box_contain = document.createElement('div');
 			            	box_contain.className = 'item';
@@ -241,7 +215,7 @@
 			            	box_img.className = 'img'
 
 			            	var img = document.createElement('img');
-			            	img.src = res['regular_pizza'][i].image_url;
+			            	img.src = res['BookItem'][i].image;
 			            	img.style.width = '80px';
 			            	img.style.height = '80px'
 			            	
@@ -251,21 +225,21 @@
 
 			            	var a = document.createElement('a');
 			            	a.className = 'course'
-			            	a.innerHTML = res['regular_pizza'][i].course;
-			            	a.href = 'regular_pizza/' + res['regular_pizza'][i].id;
+			            	a.innerHTML = res['BookItem'][i].name;
+			            	a.href = 'bookItem/' + res['BookItem'][i].id;
 
 			            	box_contain.append(a);
 
 			            	var size_small = document.createElement('div');
 			            	size_small.className = 'size_small';
-			            	size_small.innerHTML = res['regular_pizza'][i].size_small;
+			            	size_small.innerHTML = res['BookItem'][i].price;
 
-			            	var size_large = document.createElement('div');
-			            	size_large.className = 'size_large';
-			            	size_large.innerHTML = res['regular_pizza'][i].size_large;
+			            	// var size_large = document.createElement('div');
+			            	// size_large.className = 'size_large';
+			            	// size_large.innerHTML = res['BookItem'][i].price;
 
 			            	box_contain.append(size_small);
-			            	box_contain.append(size_large);
+			            	// box_contain.append(size_large);
 
 			            	course_box.append(box_contain);
 			            }
@@ -280,12 +254,12 @@
 										<div style="width:80px; height:80px"></div>
 									</div>
 		      					<div class="course"></div>
-		      					<div class="size_small">Small</div>
-		      					<div class="size_large">Large</div>
+		      					<div class="size_small">Price</div>
+		      					<div class="size_large" style="display: none">Price</div>
 		   					</div>
 			        		`;
 			            
-			            for (let i = 0;  i < res['sicilian_pizza'].length; i++) {
+			            for (let i = 0;  i < res['LaptopItem'].length; i++) {
 
 			            	var box_contain = document.createElement('div');
 			            	box_contain.className = 'item';
@@ -294,7 +268,7 @@
 			            	box_img.className = 'img'
 
 			            	var img = document.createElement('img');
-			            	img.src = res['sicilian_pizza'][i].image_url;
+			            	img.src = res['LaptopItem'][i].image;
 			            	img.style.width = '80px';
 			            	img.style.height = '80px'
 			            	
@@ -304,21 +278,21 @@
 
 			            	var a = document.createElement('a');
 			            	a.className = 'course'
-			            	a.innerHTML = res['sicilian_pizza'][i].course;
-			            	a.href = 'sicilian_pizza/' + res['sicilian_pizza'][i].id;
+			            	a.innerHTML = res['LaptopItem'][i].name;
+			            	a.href = 'laptopItem/' + res['LaptopItem'][i].id;
 
 			            	box_contain.append(a);
 
 			            	var size_small = document.createElement('div');
 			            	size_small.className = 'size_small';
-			            	size_small.innerHTML = res['sicilian_pizza'][i].size_small;
+			            	size_small.innerHTML = res['LaptopItem'][i].price;
 
-			            	var size_large = document.createElement('div');
-			            	size_large.className = 'size_large';
-			            	size_large.innerHTML = res['sicilian_pizza'][i].size_large;
+			            	// var size_large = document.createElement('div');
+			            	// size_large.className = 'size_large';
+			            	// size_large.innerHTML = res['LaptopItem'][i].price;
 
 			            	box_contain.append(size_small);
-			            	box_contain.append(size_large);
+			            	// box_contain.append(size_large);
 
 			            	course_box.append(box_contain);
 			            }
@@ -333,12 +307,12 @@
 										<div style="width:80px; height:80px"></div>
 									</div>  
 						      	<div class="course"></div>
-							      <div class="size_small">Small</div>
-							      <div class="size_large">Large</div>
+							      <div class="size_small">Price</div>
+							      <div class="size_large" style="display: none">Price</div>
 			      			</div>
 			        		`;
 			            
-			            for (let i = 0;  i < res['sub'].length; i++) {
+			            for (let i = 0;  i < res['ClothesItem'].length; i++) {
 
 			            	var box_contain = document.createElement('div');
 			            	box_contain.className = 'item';
@@ -347,7 +321,7 @@
 			            	box_img.className = 'img'
 
 			            	var img = document.createElement('img');
-			            	img.src = res['sub'][i].image_url;
+			            	img.src = res['ClothesItem'][i].image;
 			            	img.style.width = '80px';
 			            	img.style.height = '80px'
 			            	
@@ -357,187 +331,187 @@
 
 			            	var a = document.createElement('a');
 			            	a.className = 'course'
-			            	a.innerHTML = res['sub'][i].course;
-			            	a.href = 'sub/' + res['sub'][i].id;
+			            	a.innerHTML = res['ClothesItem'][i].name;
+			            	a.href = 'clothesItem/' + res['ClothesItem'][i].id;
 
 			            	box_contain.append(a);
 
 			            	var size_small = document.createElement('div');
 			            	size_small.className = 'size_small';
-			            	size_small.innerHTML = res['sub'][i].size_small;
+			            	size_small.innerHTML = res['ClothesItem'][i].price;
 
-			            	var size_large = document.createElement('div');
-			            	size_large.className = 'size_large';
-			            	size_large.innerHTML = res['sub'][i].size_large;
+			            	// var size_large = document.createElement('div');
+			            	// size_large.className = 'size_large';
+			            	// size_large.innerHTML = res['ClothesItem'][i].price;
 
 			            	box_contain.append(size_small);
-			            	box_contain.append(size_large);
+			            	// box_contain.append(size_large);
 
 			            	course_box.append(box_contain);
 			            }
 
-			            // Handle pasta item
-			        		var pasta_box = document.querySelector('.pasta');
-			        		var course_box = pasta_box.querySelector('.course');
-			        		course_box.innerHTML = `
+			     //        // Handle pasta item
+			     //    		var pasta_box = document.querySelector('.pasta');
+			     //    		var course_box = pasta_box.querySelector('.course');
+			     //    		course_box.innerHTML = `
 
-			        			<div class="item">
-									<div class="img">
-										<div style="width:80px; height:80px"></div>
-									</div>  
-						      	<div class="course"></div>
-							      <div class="size_small" style="width: 10%;"></div>
-							      <div class="size_large" style="width: 50%;">Price</div>
-			      			</div>
+			     //    			<div class="item">
+								// 	<div class="img">
+								// 		<div style="width:80px; height:80px"></div>
+								// 	</div>  
+						  //     	<div class="course"></div>
+							 //      <div class="size_small" style="width: 10%;"></div>
+							 //      <div class="size_large" style="width: 50%;">Price</div>
+			     //  			</div>
 
-			        		`
+			     //    		`
 			            
-			            for (let i = 0;  i < res['pasta'].length; i++) {
+			     //        for (let i = 0;  i < res['pasta'].length; i++) {
 
-			            	var box_contain = document.createElement('div');
-			            	box_contain.className = 'item';
+			     //        	var box_contain = document.createElement('div');
+			     //        	box_contain.className = 'item';
 			            	
-			            	var box_img = document.createElement('div');
-			            	box_img.className = 'img'
+			     //        	var box_img = document.createElement('div');
+			     //        	box_img.className = 'img'
 
-			            	var img = document.createElement('img');
-			            	img.src = res['pasta'][i].image_url;
-			            	img.style.width = '80px';
-			            	img.style.height = '80px'
+			     //        	var img = document.createElement('img');
+			     //        	img.src = res['pasta'][i].image_url;
+			     //        	img.style.width = '80px';
+			     //        	img.style.height = '80px'
 			            	
-			            	box_img.append(img);
+			     //        	box_img.append(img);
 
-			            	box_contain.append(box_img)
+			     //        	box_contain.append(box_img)
 
-			            	var a = document.createElement('a');
-			            	a.className = 'course'
-			            	a.innerHTML = res['pasta'][i].course;
-			            	a.href = 'pasta/' + res['pasta'][i].id;
+			     //        	var a = document.createElement('a');
+			     //        	a.className = 'course'
+			     //        	a.innerHTML = res['pasta'][i].course;
+			     //        	a.href = 'pasta/' + res['pasta'][i].id;
 
-			            	box_contain.append(a);
+			     //        	box_contain.append(a);
 
-			            	var size_small = document.createElement('div');
-			            	size_small.className = 'size_small';
-			            	size_small.style.width = '10%';
+			     //        	var size_small = document.createElement('div');
+			     //        	size_small.className = 'size_small';
+			     //        	size_small.style.width = '10%';
 
-			            	var size_large = document.createElement('div');
-			            	size_large.className = 'size_large';
-			            	size_large.innerHTML = res['pasta'][i].price;
-			            	size_large.style.width = '50%';
+			     //        	var size_large = document.createElement('div');
+			     //        	size_large.className = 'size_large';
+			     //        	size_large.innerHTML = res['pasta'][i].price;
+			     //        	size_large.style.width = '50%';
 
-			            	box_contain.append(size_small);
-			            	box_contain.append(size_large);
+			     //        	box_contain.append(size_small);
+			     //        	box_contain.append(size_large);
 
-			            	course_box.append(box_contain);
-			            }
+			     //        	course_box.append(box_contain);
+			     //        }
 
-			            // Handle salad item
-			        		var salad_box = document.querySelector('.salad');
-			        		var course_box = salad_box.querySelector('.course');
-			        		course_box.innerHTML = `
+			     //        // Handle salad item
+			     //    		var salad_box = document.querySelector('.salad');
+			     //    		var course_box = salad_box.querySelector('.course');
+			     //    		course_box.innerHTML = `
 
-			        			<div class="item">
-									<div class="img">
-										<div style="width:80px; height:80px"></div>
-									</div>  
-						      	<div class="course"></div>
-							      <div class="size_small" style="width: 10%;"></div>
-							      <div class="size_large" style="width: 50%;">Price</div>
-								</div>
+			     //    			<div class="item">
+								// 	<div class="img">
+								// 		<div style="width:80px; height:80px"></div>
+								// 	</div>  
+						  //     	<div class="course"></div>
+							 //      <div class="size_small" style="width: 10%;"></div>
+							 //      <div class="size_large" style="width: 50%;">Price</div>
+								// </div>
 
-			        		`
+			     //    		`
 			            
-			            for (let i = 0;  i < res['salad'].length; i++) {
+			     //        for (let i = 0;  i < res['salad'].length; i++) {
 
-			            	var box_contain = document.createElement('div');
-			            	box_contain.className = 'item';
+			     //        	var box_contain = document.createElement('div');
+			     //        	box_contain.className = 'item';
 			            	
-			            	var box_img = document.createElement('div');
-			            	box_img.className = 'img'
+			     //        	var box_img = document.createElement('div');
+			     //        	box_img.className = 'img'
 
-			            	var img = document.createElement('img');
-			            	img.src = res['salad'][i].image_url;
-			            	img.style.width = '80px';
-			            	img.style.height = '80px'
+			     //        	var img = document.createElement('img');
+			     //        	img.src = res['salad'][i].image_url;
+			     //        	img.style.width = '80px';
+			     //        	img.style.height = '80px'
 			            	
-			            	box_img.append(img);
+			     //        	box_img.append(img);
 
-			            	box_contain.append(box_img)
+			     //        	box_contain.append(box_img)
 
-			            	var a = document.createElement('a');
-			            	a.className = 'course'
-			            	a.innerHTML = res['salad'][i].course;
-			            	a.href = 'salad/' + res['salad'][i].id;
+			     //        	var a = document.createElement('a');
+			     //        	a.className = 'course'
+			     //        	a.innerHTML = res['salad'][i].course;
+			     //        	a.href = 'salad/' + res['salad'][i].id;
 
-			            	box_contain.append(a);
+			     //        	box_contain.append(a);
 
-			            	var size_small = document.createElement('div');
-			            	size_small.className = 'size_small';
-			            	size_small.style.width = '10%';
+			     //        	var size_small = document.createElement('div');
+			     //        	size_small.className = 'size_small';
+			     //        	size_small.style.width = '10%';
 
-			            	var size_large = document.createElement('div');
-			            	size_large.className = 'size_large';
-			            	size_large.innerHTML = res['salad'][i].price;
-			            	size_large.style.width = '50%';
+			     //        	var size_large = document.createElement('div');
+			     //        	size_large.className = 'size_large';
+			     //        	size_large.innerHTML = res['salad'][i].price;
+			     //        	size_large.style.width = '50%';
 
-			            	box_contain.append(size_small);
-			            	box_contain.append(size_large);
+			     //        	box_contain.append(size_small);
+			     //        	box_contain.append(size_large);
 
-			            	course_box.append(box_contain);
-			            }
+			     //        	course_box.append(box_contain);
+			     //        }
 
-			            // Handle dinner_platter item
-			        		var dinner_platter_box = document.querySelector('.dinner_platter');
-			        		var course_box = dinner_platter_box.querySelector('.course');
-			        		course_box.innerHTML = `
+			     //        // Handle dinner_platter item
+			     //    		var dinner_platter_box = document.querySelector('.dinner_platter');
+			     //    		var course_box = dinner_platter_box.querySelector('.course');
+			     //    		course_box.innerHTML = `
 
-			        			<div class="item">
-									<div class="img">
-										<div style="width:80px; height:80px"></div>
-									</div>  
-						      	<div class="course"></div>
-							      <div class="size_small">Small</div>
-							      <div class="size_large">Large</div>
-				   			</div>
-			        		`
+			     //    			<div class="item">
+								// 	<div class="img">
+								// 		<div style="width:80px; height:80px"></div>
+								// 	</div>  
+						  //     	<div class="course"></div>
+							 //      <div class="size_small">Small</div>
+							 //      <div class="size_large">Large</div>
+				   	// 		</div>
+			     //    		`
 			            
-			            for (let i = 0;  i < res['dinner_platter'].length; i++) {
+			     //        for (let i = 0;  i < res['dinner_platter'].length; i++) {
 
-			            	var box_contain = document.createElement('div');
-			            	box_contain.className = 'item';
+			     //        	var box_contain = document.createElement('div');
+			     //        	box_contain.className = 'item';
 			            	
-			            	var box_img = document.createElement('div');
-			            	box_img.className = 'img'
+			     //        	var box_img = document.createElement('div');
+			     //        	box_img.className = 'img'
 
-			            	var img = document.createElement('img');
-			            	img.src = res['dinner_platter'][i].image_url;
-			            	img.style.width = '80px';
-			            	img.style.height = '80px'
+			     //        	var img = document.createElement('img');
+			     //        	img.src = res['dinner_platter'][i].image_url;
+			     //        	img.style.width = '80px';
+			     //        	img.style.height = '80px'
 			            	
-			            	box_img.append(img);
+			     //        	box_img.append(img);
 
-			            	box_contain.append(box_img)
+			     //        	box_contain.append(box_img)
 
-			            	var a = document.createElement('a');
-			            	a.className = 'course'
-			            	a.innerHTML = res['dinner_platter'][i].course;
-			            	a.href = 'dinner_platter/' + res['dinner_platter'][i].id;
+			     //        	var a = document.createElement('a');
+			     //        	a.className = 'course'
+			     //        	a.innerHTML = res['dinner_platter'][i].course;
+			     //        	a.href = 'dinner_platter/' + res['dinner_platter'][i].id;
 
-			            	box_contain.append(a);
+			     //        	box_contain.append(a);
 
-			            	var size_small = document.createElement('div');
-			            	size_small.className = 'size_small';
-			            	size_small.innerHTML = res['dinner_platter'][i].size_small;
+			     //        	var size_small = document.createElement('div');
+			     //        	size_small.className = 'size_small';
+			     //        	size_small.innerHTML = res['dinner_platter'][i].size_small;
 
-			            	var size_large = document.createElement('div');
-			            	size_large.className = 'size_large';
-			            	size_large.innerHTML = res['dinner_platter'][i].size_large;
+			     //        	var size_large = document.createElement('div');
+			     //        	size_large.className = 'size_large';
+			     //        	size_large.innerHTML = res['dinner_platter'][i].size_large;
 
-			            	box_contain.append(size_small);
-			            	box_contain.append(size_large);
+			     //        	box_contain.append(size_small);
+			     //        	box_contain.append(size_large);
 
-			            	course_box.append(box_contain);
-			            }
+			     //        	course_box.append(box_contain);
+			     //        }
 			        },
 			        error: function (res) {
 			            console.log(res)

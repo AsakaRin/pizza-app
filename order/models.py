@@ -1,78 +1,157 @@
 from django.db import models
 
-# Create your models here.
-
-class Topping(models.Model):
-
-	course = models.CharField(max_length=64)
+class Account(models.Model):
+	accountId = models.IntegerField()
+	password = models.CharField(max_length=64)
 
 	def __str__(self):
-		return f"{self.course}"
+		return f"{self.accountId}"
 
-class Regular_Pizza(models.Model):
-
-	course = models.CharField(max_length=64)
-	size_small = models.CharField(max_length=64)
-	size_large = models.CharField(max_length=64)
-	toppings = models.IntegerField()
-	image = models.ImageField(upload_to='images', null=False ,default=None)
+class Address(models.Model):
+	location = models.CharField(max_length=64)
 
 	def __str__(self):
-		return f"{self.course} - {self.image} - {self.size_small} - {self.size_large}"
+		return f"{self.location}"
 
-class Sicilian_Pizza(models.Model):
-
-	course = models.CharField(max_length=64)
-	size_small = models.CharField(max_length=64)
-	size_large = models.CharField(max_length=64)
-	toppings = models.IntegerField()
-	image = models.ImageField(upload_to='images', null=False ,default=None)
+class FullName(models.Model):
+	firstName = models.CharField(max_length=64)
+	lastName = models.CharField(max_length=64)	
 
 	def __str__(self):
-		return f"{self.course} - {self.image} - {self.size_small} - {self.size_large}"
+		return f"{self.firstName} - {self.lastName}"
 
-class Extra(models.Model):
-
-	course = models.CharField(max_length=64)
-
-	def __str__(self):
-		return f"{self.course}"
-
-class Sub(models.Model):
-
-	course = models.CharField(max_length=64)
-	size_small = models.CharField(max_length=64, blank=True)
-	size_large = models.CharField(max_length=64)
-	extras = models.ManyToManyField(Extra, blank=True)
-	image = models.ImageField(upload_to='images', null=False ,default=None)
+class Customer(models.Model):
+	phone = models.CharField(max_length=64)
+	fullName = models.ForeignKey(FullName, on_delete=models.CASCADE)
+	address = models.ForeignKey(Address, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return f"{self.course} - {self.image} - {self.size_small} - {self.size_large}"
+		return f"{self.fullName}"
 
-class Pasta(models.Model):
+class Product(models.Model):
+	itemId = models.IntegerField()
+	type = models.IntegerField()
 
-	course = models.CharField(max_length=64)
+	def __str__(self):
+		return f"{self.itemId}"
+
+class Cart(models.Model):
+	listItem = models.ManyToManyField(Product)
+	totalPrice = models.IntegerField()
+
+class Comment(models.Model):
+	content = models.CharField(max_length=64)
+	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+class Author(models.Model):
+	name = models.CharField(max_length=64)
+	phone = models.CharField(max_length=64)
+
+	def __str__(self):
+		return f"{self.name}"
+
+class Publisher(models.Model):
+	name = models.CharField(max_length=64)
+	address = models.CharField(max_length=64)
+	phone = models.CharField(max_length=64)
+
+	def __str__(self):
+		return f"{self.name}"
+
+class Category(models.Model):
+	name = models.CharField(max_length=64)
+
+	def __str__(self):
+		return f"{self.name}"
+
+class Book(models.Model):
+	name = models.CharField(max_length=64)
+	numberPage = models.CharField(max_length=64)
+	author = models.ForeignKey(Author, on_delete=models.CASCADE)
+	publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
+	category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return f"{self.name}"
+
+class BookItem(models.Model):
 	price = models.CharField(max_length=64)
-	image = models.ImageField(upload_to='images', null=False ,default=None)
+	image = models.CharField(max_length=64)
+	book = models.ForeignKey(Book, on_delete=models.CASCADE)
+	comment = models.ForeignKey(Comment, null=True, blank=True, on_delete=models.CASCADE)
+
+class Producer(models.Model):
+	name = models.CharField(max_length=64)
+	address = models.CharField(max_length=64)
 
 	def __str__(self):
-		return f"{self.course} -  {self.image} - {self.price}"
+		return f"{self.name}"
 
-class Salad(models.Model):
+class Types(models.Model):
+	name = models.CharField(max_length=64)
+	value = models.CharField(max_length=64)
 
-	course = models.CharField(max_length=64)
+	def __str__(self):
+		return f"{self.name}"
+
+class Laptop(models.Model):
+	name = models.CharField(max_length=64)
+	color = models.CharField(max_length=64)
+	producer = models.ForeignKey(Producer, on_delete=models.CASCADE)
+	type = models.ForeignKey(Types, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return f"{self.name}"
+
+class LaptopItem(models.Model):
 	price = models.CharField(max_length=64)
-	image = models.ImageField(upload_to='images', null=False ,default=None)
+	image = models.CharField(max_length=64)
+	laptop = models.ForeignKey(Laptop, on_delete=models.CASCADE)
+
+class Styles(models.Model):
+	name = models.CharField(max_length=64)
+	gender = models.IntegerField()
 
 	def __str__(self):
-		return f"{self.course} - {self.image} - {self.price}"
+		return f"{self.name}"
 
-class Dinner_Platter(models.Model):
-
-	course = models.CharField(max_length=64)
-	size_small = models.CharField(max_length=64)
-	size_large = models.CharField(max_length=64)
-	image = models.ImageField(upload_to='images', null=False ,default=None)
+class Material(models.Model):
+	name = models.CharField(max_length=64)
 
 	def __str__(self):
-		return f"{self.course} - {self.image} - {self.size_small} - {self.size_large}"
+		return f"{self.name}"
+
+class Clothes(models.Model):
+	name = models.CharField(max_length=64)
+	color = models.CharField(max_length=64)
+	style = models.ForeignKey(Styles, on_delete=models.CASCADE)
+	material = models.ForeignKey(Material, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return f"{self.name}"
+
+class ClothesItem(models.Model):
+	price = models.CharField(max_length=64)
+	image = models.CharField(max_length=64)
+	clothes = models.ForeignKey(Clothes, on_delete=models.CASCADE)
+
+class Payment(models.Model):
+	dateTransaction = models.CharField(max_length=64)
+	method = models.IntegerField()
+
+class Paypal(models.Model):
+	paypalId = models.CharField(max_length=64)
+
+class PayCast(models.Model):
+	payCastId = models.CharField(max_length=64)
+
+class Shipment(models.Model):
+	costShip = models.IntegerField()
+	nameOptionShip = models.CharField(max_length=64)
+
+class Order(models.Model):
+	dateOrder = models.CharField(max_length=64)
+	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+	cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+	payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
+	shipment = models.ForeignKey(Shipment, on_delete=models.CASCADE)

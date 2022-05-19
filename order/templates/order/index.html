@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinochio's Pizza & Subs: Menu</title>
+    <title>Mark Store: Menu</title>
 
     <!-- Icon FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -36,7 +36,7 @@
             <div class="d-flex align-items-start justify-content-between">
                 <div class="logo-full" style="width: 75px; height: 164.028px;">
                     <a href="./">
-                       <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" style="width: 100px" alt="" >
+                       <h4 style="color: white">Mark Store</h4>
                     </a>
                 </div>
                 <div class="center_links-h">
@@ -79,124 +79,24 @@
                 <!-- Section Home -->
                 <section class="section_size-h full_screen-h">
                     <div class="wrapper_image-h">
-                        <img src="https://anhdep.tv/attachments/7c78bb3bff36837b27af694df49a7614-jpeg.7436/" alt="" style="width: 100%">
+                        <img src="{% static 'authentication/login_background.png' %}">
 
                     </div>
                     <div class="container wrapper_content-h position_title-h">
                         <div class="section_title-h">
                             <div class="swipe_effect-h">
-                                <p class="swipe_text-h">Pinochio's Pizza & Subs</p>
+                                <p class="swipe_text-h">Mark Store</p>
                             </div>
                         </div>
                         <div class="section_actions-h row justify-content-center">
-                            <a href="{% url 'menu' %}">Regular Pizza</a>
-                            <a href="{% url 'menu' %}">Sicilian Pizza</a>
-                            <a href="{% url 'menu' %}">Subs</a>
-                            <a href="{% url 'menu' %}">Pasta</a>
-                            <a href="{% url 'menu' %}">Dinner Platters</a>
+                            <a href="{% url 'menu' %}">Book</a>
+                            <a href="{% url 'menu' %}">Laptop
+                            <a href="{% url 'menu' %}">Clothes</a>
                         </div>
                     </div>
                 </section>
 
-                <section class="col_content-h full_screen-h">
-
-                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
-                        <div class="text col-md-6">
-                            <div class="title_bg_red-h">
-                                <p>25% OFF</p>
-                            </div>
-                            <div class="title_bg_white-h">
-                                <p>Regular Pizza</p>
-                            </div>
-                            <div class="box_info-h">
-                                <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
-                                <a href="{% url 'menu' %}" class="button-h">Booking Now</a>
-                             </div>
-                        </div>
-                        <div class="image col-md-6">
-                            <div class="border-image">
-                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/pizza-de-la-casa.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-
-                <section class="col_content-h full_screen-h">
-
-                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
-
-                        <div class="text col-md-6">
-                            <div class="title_bg_red-h">
-                                <p>Buy 1 Get 2</p>
-                            </div>
-                            <div class="title_bg_white-h">
-                                <p>SICILIAN PIZZA</p>
-                            </div>
-                            <div class="box_info-h">
-                                 <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
-                                <a href="{% url 'menu' %}" class="button-h">Booking Now</a>
-                             </div>
-                        </div>
-                        <div class="image col-md-6">
-                            <div class="border-image">
-                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/pizza-caprese.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-
-                <section class="col_content-h full_screen-h">
-
-                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
-                        <div class="text col-md-6">
-                            <div class="title_bg_red-h">
-                                <p>So Fresh</p>
-                            </div>
-                            <div class="title_bg_white-h">
-                                <p>SALADS</p>
-                            </div>
-                            <div class="box_info-h">
-                                 <p>We bring you the usual pizza wars with flavors that are remembered. Please enjoy it by ordering now...</p>
-                                <a href="{% url 'menu' %}" class="button-h">Booking Now</a>
-                            </div>
-                        </div>
-                        <div class="image col-md-6">
-                            <div class="border-image">
-                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2021/04/salata-greceasca.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-
-                <section class="col_content-h full_screen-h">
-
-                    <div class="fg_container-h wrapper_content-h row align-items-center justify-content-center">
-
-                        <div class="text col-md-6">
-                            <div class="title_bg_red-h">
-                                <p>COVID-19 POLICY</p>
-                            </div>
-                            <div class="title_bg_white-h">
-                                <p>Keeping you safe</p>
-                            </div>
-                            <div class="box_info-h">
-                                <p>Information on how we're keeping our teams and our customers happy and safe during
-                                    this time.</p>
-                                <a href="{% url 'menu' %}" class="button-h">COVID-19 POLICY</a>
-                            </div>
-                        </div>
-
-                        <div class="image col-md-6">
-                            <div class="border-image">
-                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/pizza-quatro-stagioni-880x510.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
+                
 
                 <div class="signup_social-h">
                     <div class="container-fluid wrapper_content-h">
@@ -204,17 +104,15 @@
 
                             <div class="signup-h col-md-6">
 
-                                <img src="https://www.pizza-pinochio.ro/wp-content/uploads/2020/01/LOGO-PIZZA-PINOCHIO.png" alt="Notepad illustration" style="width: 60px " />
-
                                 <form action="">
-                                    <label for="EMAIL">NEWS AND OFFERS</label>
+                                    <label for="EMAIL">NEWS AND ORDERS</label>
                                     <div class="">
                                         <input type="email" value="" class="input_email-h" placeholder="Email" required>
                                         <input type="submit" value="Submit" class="input_submit-h button-h">
                                         <div class="checkbox_holder-h">
                                             <input type="checkbox" value="" name="PRIVACY" class="check_policy-h"
                                                 required>
-                                            <p>By signing up you are agreeing to receive marketing updates from Pinochio. You
+                                            <p>By signing up you are agreeing to receive marketing updates from us. You
                                                 can find more information in our <a target="_blank"
                                                     href="/privacy">Privacy Policy</a></p>
                                         </div>

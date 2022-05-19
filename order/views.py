@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate
 from django.http.response import Http404
 from django.shortcuts import render
 from django.urls import reverse
-from .models import Regular_Pizza, Sicilian_Pizza, Sub, Pasta, Salad, Dinner_Platter, Topping, Extra
+from .models import *
 from django.core.mail import send_mail, BadHeaderError
 from django.core import serializers
 
@@ -18,12 +18,9 @@ COMPLETED = {}
 def index(request):
 
 	context = {
-		"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
-		"sicilian_pizza": Sicilian_Pizza.objects.all(),
-		"sub": Sub.objects.all(),
-		"pasta": Pasta.objects.all(),
-		"salad": Salad.objects.all(),
-		"dinner_platter": Dinner_Platter.objects.all(),
+		"BookItem": BookItem.objects.all(),
+		"LaptopItem": LaptopItem.objects.all(),		
+		"ClothesItem": ClothesItem.objects.all()
 	}
 
 	return render(request, "order/index.html", context)
@@ -39,115 +36,59 @@ def getmenu(request):
 		key = request.GET.get("key", None)		
 
 		context = {
-			"regular_pizza": Regular_Pizza.objects.all(), #objects.values_list('name', flat=True)
-			"sicilian_pizza": Sicilian_Pizza.objects.all(),
-			"sub": Sub.objects.all(),
-			"pasta": Pasta.objects.all(),
-			"salad": Salad.objects.all(),
-			"dinner_platter": Dinner_Platter.objects.all(),
-		}		
+			"BookItem": BookItem.objects.all(),
+			"LaptopItem": LaptopItem.objects.all(),		
+			"ClothesItem": ClothesItem.objects.all()
+		}	
 
 		# convert queryset to json
 		data = {}
-		data["regular_pizza"] = []
-		for item in context["regular_pizza"]:
+		data["BookItem"] = []
+		for item in context["BookItem"]:
 
 			if key != '' and key != None:
-				if key not in item.course:
+				if key not in item.book.name:
 					continue
-
 			obj = {
 				'id': item.id,
-				'course': item.course,
-				'size_small': item.size_small,
-				'size_large': item.size_large,
-				'image_url': item.image.url,
-				'type': 'regular_pizza'
-			}
-			data['regular_pizza'].append(obj)
-
-		data["sicilian_pizza"] = []
-		for item in context["sicilian_pizza"]:
-
-			if key != '' and key != None:
-				if key not in item.course:
-					continue
-
-			obj = {
-				'id': item.id,
-				'course': item.course,
-				'size_small': item.size_small,
-				'size_large': item.size_large,
-				'image_url': item.image.url,
-				'type': 'sicilian_pizza'
-			}
-			data['sicilian_pizza'].append(obj)
-
-		data["sub"] = []
-		for item in context["sub"]:
-
-			if key != '' and key != None:
-				if key not in item.course:
-					continue
-
-			obj = {
-				'id': item.id,
-				'course': item.course,
-				'size_small': item.size_small,
-				'size_large': item.size_large,
-				'image_url': item.image.url,
-				'type': 'sub'
-			}
-			data['sub'].append(obj)
-
-		data["pasta"] = []
-		for item in context["pasta"]:
-
-			if key != '' and key != None:
-				if key not in item.course:
-					continue
-
-			obj = {
-				'id': item.id,
-				'course': item.course,
+				'image': item.image,
+				'name': item.book.name,
 				'price': item.price,
-				'image_url': item.image.url,
-				'type': 'pasta'
+				'type': 'BookItem'
 			}
-			data['pasta'].append(obj)
+			data['BookItem'].append(obj)
 
-		data["salad"] = []
-		for item in context["salad"]:
+		data["LaptopItem"] = []
+		for item in context["LaptopItem"]:
 
 			if key != '' and key != None:
-				if key not in item.course:
+				if key not in item.laptop.name:
 					continue
 
 			obj = {
 				'id': item.id,
-				'course': item.course,
+				'image': item.image,
+				'name': item.laptop.name,
 				'price': item.price,
-				'image_url': item.image.url,
-				'type': 'salad'
+				'type': 'LaptopItem'
 			}
-			data['salad'].append(obj)
+			data['LaptopItem'].append(obj)
 
-		data["dinner_platter"] = []
-		for item in context["dinner_platter"]:
+		data["ClothesItem"] = []
+		for item in context["ClothesItem"]:
 
 			if key != '' and key != None:
-				if key not in item.course:
+				if key not in item.clothes.name:
 					continue
-			
+
 			obj = {
 				'id': item.id,
-				'course': item.course,
-				'size_small': item.size_small,
-				'size_large': item.size_large,
-				'image_url': item.image.url,
-				'type': 'dinner_platter'
+				'image': item.image,
+				'name': item.clothes.name,
+				'price': item.price,
+				'type': 'ClothesItem'
 			}
-			data['dinner_platter'].append(obj)
+			data['ClothesItem'].append(obj)		
 
 		return JsonResponse(data, status = 200)      
 
@@ -156,105 +97,50 @@ def getmenu(request):
 
 def custom(request, option, item_id):
 
-	if option == "regular_pizza":
+	if option == "bookItem":
 		try:
-			item = Regular_Pizza.objects.get(id=item_id)
-		except Regular_Pizza.DoesNotExist:
+			item = BookItem.objects.get(id=item_id)
+		except BookItem.DoesNotExist:
 			raise Http404("item does not exist")
 
-		list_toppings = Topping.objects.values_list('course', flat=True)
-
 		context = {
-			"option": option,
-			"course": item.course,
-			"size_small": item.size_small,
-			"size_large": item.size_large,
-			"number_toppings": item.toppings,
-			"list_toppings": list_toppings,
+			'id': item.id,
+			'image': item.image,
+			'name': item.book.name,
+			'price': item.price,
+			'option': option
 		}
 
 		return render(request, "order/order.html", context)
 
-	if option == "sicilian_pizza":
-		try: 
-			item = Sicilian_Pizza.objects.get(id=item_id)
-		except Sicilian_Pizza.DoesNotExist:
-			raise Http404("item does not exist")
-
-		list_toppings = Topping.objects.values_list('course', flat=True)
-
-		context = {
-			"option": option,
-			"course": item.course,
-			"size_small": item.size_small,
-			"size_large": item.size_large,
-			"number_toppings": item.toppings,
-			"list_toppings": list_toppings,
-		}
-
-		return render(request, "order/order.html", context)
-
-	if option == "sub":
-		try: 
-			item = Sub.objects.get(id=item_id)
-		except Sub.DoesNotExist:
-			raise Http404("item does not exist")
-
-		list_extras = item.extras.all()
-
-		lst = []
-		for i in range(len(list_extras)):
-			lst.append(str(list_extras[i]))
-
-		context = {
-			"option": option,
-			"course": item.course,
-			"size_small": item.size_small,
-			"size_large": item.size_large,
-			"list_extras": lst,
-		}
-
-		return render(request, "order/order.html", context)
-
-	if option == "pasta":
+	if option == "laptopItem":
 		try:
-			item = Pasta.objects.get(id=item_id)
-		except Pasta.DoesNotExist:
+			item = LaptopItem.objects.get(id=item_id)
+		except LaptopItem.DoesNotExist:
 			raise Http404("item does not exist")
 
 		context = {
-			"option": option,
-			"course": item.course,
-			"price": item.price,
+			'id': item.id,
+			'image': item.image,
+			'name': item.laptop.name,
+			'price': item.price,
+			'option': option
 		}
 
 		return render(request, "order/order.html", context)
 
-	if option == "salad":
+	if option == "clothesItem":
 		try:
-			item = Salad.objects.get(id=item_id)
-		except Salad.DoesNotExist:
+			item = ClothesItem.objects.get(id=item_id)
+		except ClothesItem.DoesNotExist:
 			raise Http404("item does not exist")
 
 		context = {
-			"option": option,
-			"course": item.course,
-			"price": item.price,
-		}
-
-		return render(request, "order/order.html", context)
-
-	if option == "dinner_platter":
-		try:
-			item = Dinner_Platter.objects.get(id=item_id)
-		except Dinner_Platter.DoesNotExist:
-			raise Http404("item does not exist")
-
-		context = {
-			"option": option,
-			"course": item.course,
-			"size_small": item.size_small,
-			"size_large": item.size_large,
+			'id': item.id,
+			'image': item.image,
+			'name': item.clothes.name,
+			'price': item.price,
+			'option': option
 		}
 
 		return render(request, "order/order.html", context)
@@ -269,24 +155,13 @@ def cart(request):
 
 		option = request.POST["option"]
 
-		if option == "regular_pizza":
-			option = "Regular Pizza"
-			course = request.POST["course"]
-			size = request.POST["type"]
-			number_toppings = int(request.POST["number_toppings"])
-			toppings = request.POST.getlist("topping")
+		if option == "bookItem":
+			option = "bookItem"
+			name = request.POST["name"]					
 			qty = request.POST["qty"]
 			price = request.POST["price"]
 
-			mess = "toppings("
-
-			for i in range(len(toppings)):
-				if i == len(toppings) - 1:
-					mess = mess + toppings[i] +")"
-				else:
-					mess = mess + toppings[i] + ", "
-
-			note = option.title() + " - " + course.title() + " - "  + size.title() + " - " + mess.title() + " - " + "Qty(" + qty +")" + " - " + "Price($" + price + ")"
+			note = "Book: " + name.title() + " - " + "Qty(" + qty +")" + " - " + "Price($" + price + ")"
 
 			if request.user.username not in CART:
 				CART[request.user.username] = []
@@ -299,24 +174,13 @@ def cart(request):
 
 			print(CART)
 
-		if option == "sicilian_pizza":
-			option = "Sicilian Pizza"
-			course = request.POST["course"]
-			size = request.POST["type"]
-			number_toppings = int(request.POST["number_toppings"])
-			toppings = request.POST.getlist("topping")
+		if option == "laptopItem":
+			option = "laptopItem"
+			name = request.POST["name"]					
 			qty = request.POST["qty"]
 			price = request.POST["price"]
 
-			mess = "items("
-
-			for i in range(len(toppings)):
-				if i == len(toppings) - 1:
-					mess = mess + toppings[i] +")"
-				else:
-					mess = mess + toppings[i] + ", "
-
-			note = option.title()+" - "+course.title()+" - "+size.title()+" - "+mess.title()+" - "+"Qty("+qty+")"+" - "+"Price($"+price+")"
+			note = "Laptop: " + name.title() + " - " + "Qty(" + qty +")" + " - " + "Price($" + price + ")"
 
 			if request.user.username not in CART:
 				CART[request.user.username] = []
@@ -329,84 +193,13 @@ def cart(request):
 
 			print(CART)
 
-		if option == "sub":
-			option = "Subs"
-			course = request.POST["course"]
-			size = request.POST["type"]
-			extras = request.POST.getlist("topping")
+		if option == "clothesItem":
+			option = "clothesItem"
+			name = request.POST["name"]					
 			qty = request.POST["qty"]
 			price = request.POST["price"]
 
-			if len(extras) > 0:
-				mess = "extras("
-
-				for i in range(len(extras)):
-					if i == len(extras) - 1:
-						mess = mess + extras[i] +")"
-					else:
-						mess = mess + extras[i] + ", "
-			else:
-				mess = "no extra"
-
-			note = option.title()+" - "+course.title()+" - "+size.title()+" - "+mess.title()+" - "+"Qty("+qty+")"+" - "+"Price($"+price+")"
-
-			if request.user.username not in CART:
-				CART[request.user.username] = []
-
-			dic = {}
-			dic["note"] = note
-			dic["price"] = price
-
-			CART[request.user.username].append(dic)
-
-			print(CART)
-
-		if option == "pasta":
-			option = "Pasta"
-			course = request.POST["course"]
-			qty = request.POST["qty"]
-			price = request.POST["price"]
-
-			note = option.title()+" - "+course.title()+" - "+"Qty("+qty+")"+" - "+"Price($"+price+")"
-
-			if request.user.username not in CART:
-				CART[request.user.username] = []
-
-			dic = {}
-			dic["note"] = note
-			dic["price"] = price
-
-			CART[request.user.username].append(dic)
-
-			print(CART)
-
-		if option == "salad":
-			option = "Salads"
-			course = request.POST["course"]
-			qty = request.POST["qty"]
-			price = request.POST["price"]
-
-			note = option.title()+" - "+course.title()+" - "+"Qty("+qty+")"+" - "+"Price($"+price+")"
-
-			if request.user.username not in CART:
-				CART[request.user.username] = []
-
-			dic = {}
-			dic["note"] = note
-			dic["price"] = price
-
-			CART[request.user.username].append(dic)
-
-			print(CART)
-
-		if option == "dinner_platter":
-			option = "Dinner Platter"
-			course = request.POST["course"]
-			size = request.POST["type"]
-			qty = request.POST["qty"]
-			price = request.POST["price"]
-
-			note = option.title()+" - "+course.title()+" - Qty("+qty+")"+" - "+"Price($"+price+")"
+			note = "Clothes: " + name.title() + " - " + "Qty(" + qty +")" + " - " + "Price($" + price + ")"
 
 			if request.user.username not in CART:
 				CART[request.user.username] = []
