@@ -62,7 +62,7 @@ def addProductToDB(request, type_product):
 			laptopItem.save()
 			messages.info(request, 'Add clothes successfully!')
 
-		return HttpResponseRedirect(reverse('index'))
+		return HttpResponseRedirect(reverse('manager'))
 
 	else:
 		return HttpResponse("Hello world, You're at the polls index.")
@@ -138,7 +138,7 @@ def updateProductToDB(request, type_product):
 			clothesItem.save()
 			messages.info(request, 'Edit clothes successfully!')
 
-		return HttpResponseRedirect(reverse('index'))
+		return HttpResponseRedirect(reverse('manager'))
 
 	else:
 		return HttpResponse("Hello, world. You're at the polls index.")
@@ -164,4 +164,4 @@ def deletedProduct(request, type_product, item_id):
 		clothesItem.delete()
 		messages.info(request, 'Delete clothes successfully!')
 	
-	return HttpResponseRedirect(reverse('index'))
+	return HttpResponseRedirect(reverse('manager'))
